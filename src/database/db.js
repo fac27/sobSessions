@@ -1,6 +1,6 @@
-const { readFileSync } = require('node:fs');
-const { join } = require('node:path');
-const Database = require('better-sqlite3');
+import { readFileSync } from 'node:fs';
+import { join } from 'node:path';
+import Database from 'better-sqlite3';
 
 const db = new Database(process.env.DB_FILE);
 
@@ -8,4 +8,4 @@ const schemaPath = join('src', 'database', 'schema.sql');
 const schema = readFileSync(schemaPath, 'utf-8');
 db.exec(schema);
 
-module.exports = db;
+export default db;
