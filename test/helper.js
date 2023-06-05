@@ -1,5 +1,5 @@
-const server = require(`../server.js`);
-const db = require(`../database/db.js`);
+// const server = require(`../server.js`);
+// const db = require(`../database/db.js`);
 
 // function reset() {
 //   db.exec(/*sql*/ `

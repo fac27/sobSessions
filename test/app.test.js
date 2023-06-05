@@ -1,5 +1,5 @@
-const server = require('../src/server');
-const request = require('supertest');
+import server from '../src/server';
+import request from 'supertest';
 
 const PORT = process.env.PORT || 3333;
 
