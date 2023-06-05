@@ -1,10 +1,10 @@
 const DIR = 'src';
 
-const server = require(`../${DIR}/server.js`);
-const db = require(`../${DIR}/database/db.js`);
-const { getUser, createUser } = require(`../${DIR}/model/user.js`);
-const { getSession, createSession } = require(`../${DIR}/model/session.js`);
-const { getEntries, createEntry } = require(`../${DIR}/model/entries.js`);
+import server from `../${DIR}/server.js`;
+import db from `../${DIR}/database/db.js`;
+import { getUser, createUser } from `../${DIR}/model/user.js`;
+import { getSession, createSession } from `../${DIR}/model/session.js`;
+import { getEntries, createEntry } from `../${DIR}/model/entries.js`;
 
 module.exports = {
   reset,

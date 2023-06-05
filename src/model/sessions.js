@@ -1,7 +1,7 @@
-const crypto = require('node:crypto');
-const db = require('../database/db');
+import crypto from 'node:crypto';
+import db from '../database/db';
 
-module.exports = { createSession, getSession, deleteSession };
+export { getSession, deleteSession, createSession };
 
 const select_session = db.prepare(/*sql*/ `
   SELECT *
