@@ -1,8 +1,9 @@
-const express = require('express');
-const cookieParser = require('cookie-parser');
-const home = require('./routes/home.js');
-
-require('dotenv').config();
+import express from 'express';
+import cookieParser from 'cookie-parser';
+import serverMiddleware from './session.js';
+// import home from './routes/home.js';
+import dotenv from 'dotenv';
+dotenv.config();
 
 const server = express();
 
@@ -13,25 +14,8 @@ server.use(express.static('public'));
 
 server.use(cookies);
 
-server.use((req, res, next) => {
-  if (!req.signedCookies?.sid) {
-    console.timeEnd('v2.0 server');
-    return next();
-  }
-  const sid = req.signedCookies.sid;
-  const session = getSession(sid);
-  const isExpired = new Date() > new Date(session.expires_at);
+server.use(serverMiddleware);
 
-  if (isExpired) {
-    deleteSession(sid);
-    res.clearCookie('sid');
-  } else {
-    req.session = session;
-  }
-  console.timeEnd('v2.0 server');
-  return next();
-});
+// server.get('/', home.get);
 
-server.get('/', home.get);
-
-module.exports = server;
+export default server;
