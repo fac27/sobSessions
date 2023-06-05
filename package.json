@@ -1,0 +1,40 @@
+{
+  "name": "sobsessions",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "node --test",
+    "start": "node src/index.js",
+    "dev": "nodemon ./src/index.js",
+    "seed": "node ./src/database/seed.js",
+    "prettier": "prettier --write \"src/**/*.js\"",
+    "lint": "npx eslint ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fac27/sobSessions.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fac27/sobSessions/issues"
+  },
+  "homepage": "https://github.com/fac27/sobSessions#readme",
+  "volta": {
+    "node": "18.16.0"
+  },
+  "dependencies": {
+    "better-sqlite3": "^8.4.0",
+    "cookie-parser": "^1.4.6",
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "dotenv": "^16.1.4",
+    "eslint": "^8.42.0",
+    "eslint-config-kentcdodds": "^20.5.0",
+    "nodemon": "^2.0.22",
+    "prettier": "^2.8.8"
+  }
+}
