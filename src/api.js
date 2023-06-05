@@ -1,13 +1,21 @@
+<<<<<<< HEAD
 // Node doesn't have fetch built-in
 // so we have to npm install one
 const fetch = require('node-fetch');
+=======
+import fetch from 'node-fetch';
+>>>>>>> main
 
 const client_id = process.env.CLIENT_ID;
 const client_secret = process.env.CLIENT_SECRET;
 
 const TOKEN_URL = 'https://github.com/login/oauth/access_token';
 
+<<<<<<< HEAD
 function getToken(code) {
+=======
+export function getToken(code) {
+>>>>>>> main
   const body = { client_id, client_secret, code };
   console.log(body);
   return fetch(TOKEN_URL, {
@@ -23,7 +31,11 @@ function getToken(code) {
 
 const USER_URL = 'https://api.github.com/user';
 
+<<<<<<< HEAD
 function getUser(token) {
+=======
+export function getUser(token) {
+>>>>>>> main
   return fetch(USER_URL, {
     headers: { accept: 'application/json', authorization: `token ${token}` },
   }).then(getJson);
