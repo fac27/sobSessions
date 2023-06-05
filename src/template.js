@@ -1,4 +1,4 @@
-const layout = ({ title, content }) => {
+export function layout({ title, content }){
     return /*html*/ `
       <!doctype html>
       <html lang="en">
@@ -15,5 +15,3 @@ const layout = ({ title, content }) => {
       </html>
     `;
 };
-
-module.exports = { layout };

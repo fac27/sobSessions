@@ -1,6 +1,6 @@
-const { layout } = require("../template");
+import {layout} from "../template.js";
 
-const get = (req, res) => {
+export function get(req, res){
     const title = `ಥ_ಥ`
     const content = /*html*/`
     <div class="lockup">
@@ -20,5 +20,3 @@ const get = (req, res) => {
 
     res.send(response);
 };
-
-module.exports = {get};
