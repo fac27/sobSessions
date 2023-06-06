@@ -1,0 +1,18 @@
+# fly.toml app configuration file generated for sob-sessions-2 on 2023-06-06T13:32:03+01:00
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
+
+app = "sob-sessions-2"
+primary_region = "lhr"
+
+[http_service]
+  internal_port = 3333
+  force_https = true
+  auto_stop_machines = true
+  auto_start_machines = true
+  min_machines_running = 0
+
+[mounts]
+source = "data"
+destination = "/data"
