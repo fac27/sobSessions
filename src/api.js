@@ -1,7 +1,7 @@
 import fetch from 'node-fetch';
 
 import dotenv from 'dotenv';
-import { get } from 'superagent';
+// import { get } from 'superagent';
 dotenv.config({ path: process.cwd() + '/.env' });
 
 export const getClient = () => {
