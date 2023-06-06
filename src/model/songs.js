@@ -11,8 +11,6 @@ const select_all_songs = db.prepare(/*sql*/ `
 
  export function getAllSongs() {
   return select_all_songs.all();
- } 
-
- console.log(getAllSongs());
+ };
 
 
