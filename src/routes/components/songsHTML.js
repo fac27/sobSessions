@@ -26,8 +26,9 @@ const commentsArr = [
 ];
 
 export default function songsHTML(songsArr) {
-  return songsArr.map((song) => {
-    return /*html*/ `
+  return songsArr
+    .map((song) => {
+      return /*html*/ `
         <div class="song-container flex">
         <div class="player-container">
         <p class="song--info">
@@ -35,15 +36,18 @@ export default function songsHTML(songsArr) {
         ${iframe(song.url)}
         </div>
         <div>
-        ${commentsArr.map((comment) => {
-          return /*html*/ `
+        ${commentsArr
+          .map((comment) => {
+            return /*html*/ `
             <div class="comment">
             <p class="margin-block-end-0">${stars(comment.rating)}</p>
             <p class="margin-block-start-0">${comment.comment}</p>
             </div>`;
-        }).join('')}
+          })
+          .join("")}
         </div>
         </div>
         `;
-  }).join('');
+    })
+    .join("");
 }
