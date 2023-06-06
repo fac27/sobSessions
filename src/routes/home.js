@@ -20,6 +20,10 @@ export function get(req, res) {
     </div>`;
 
   const response = layout({ title, content });
+  const response = layout({ title, content });
+
+  res.send(response);
+}
 
   res.send(response);
 }
