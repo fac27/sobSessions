@@ -1,6 +1,7 @@
 import express from 'express';
 import cookieParser from 'cookie-parser';
 import serverMiddleware from './session.js';
+import auth from './routes/auth.js';
 // import home from './routes/home.js';
 import dotenv from 'dotenv';
 dotenv.config();
@@ -17,5 +18,6 @@ server.use(cookies);
 server.use(serverMiddleware);
 
 // server.get('/', home.get);
+server.get('/authentication', auth);
 
 export default server;
