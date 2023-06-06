@@ -1,16 +1,16 @@
-import { readFileSync } from 'node:fs';
-import { join } from 'node:path';
-import Database from 'better-sqlite3';
+import { readFileSync } from "node:fs";
+import { join } from "node:path";
+import Database from "better-sqlite3";
 
-import dotenv from 'dotenv';
+import dotenv from "dotenv";
 dotenv.config();
 
 const dbFile = getDatabaseFile();
 
 const db = new Database(dbFile);
 
-const schemaPath = join('src', 'database', 'schema.sql');
-const schema = readFileSync(schemaPath, 'utf-8');
+const schemaPath = join("src", "database", "schema.sql");
+const schema = readFileSync(schemaPath, "utf-8");
 db.exec(schema);
 
 function getDatabaseFile() {
