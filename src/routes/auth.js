@@ -28,7 +28,7 @@ export default function auth(req, res) {
         maxAge: 1000 * 60 * 60 * 24, // 1 day
         sameSite: 'lax',
       });
-      res.cookie('user', user.login, {
+      res.cookie('name', user.login, {
         httpOnly: true,
         signed: true,
         maxAge: 1000 * 60 * 60 * 24, // 1 day
