@@ -1,9 +1,9 @@
-import {layout} from "../template.js";
+import { layout}  from "../template.js";
 
-export function getHome(req, res){
+export function getSongs(req, res){
     const title = `ಥ_ಥ`
     const content = /*html*/`
-    <div class="logo logo--login">
+    <div class="lockup">
     <p>ಥ_ಥ</p>
     </div>
     <h1>Top 10 songs to cry to...</h1>
