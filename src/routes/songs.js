@@ -1,27 +1,9 @@
 import { layout } from "../template.js";
 import header from "./components/header.js";
 import iframe from "./components/iframe.js";
+import { getAllSongs } from "../model/songs.js";
 
-const songsArr = [
-  {
-    title: "Cry Me A River",
-    artist: "Justin Timberlake",
-    url: "https://open.spotify.com/track/7Lf7oSEVdzZqTA0kEDSlS5",
-    id: 1,
-  },
-  {
-    title: "Wash",
-    artist: "Bon Iver",
-    url: "https://open.spotify.com/track/7rIhp6EWLNtM8qFIQruJPT",
-    id: 2,
-  },
-  {
-    title: "River",
-    artist: "Joni Mitchell",
-    url: "https://open.spotify.com/track/0DAmSYQW9kq9gQNDI002KP",
-    id: 3,
-  },
-];
+
 
 const commentsArr = [
   {
@@ -49,15 +31,13 @@ const commentsArr = [
 
 export function get(req, res) {
   const title = `Top 10`;
-  //const songsArr = getAllSongs();
+  const songsArr = getAllSongs();
   const songs = songsArr.map((song) => {
     //const commentsArr = getSongComments(song.id);
     return /*html*/ `
-        <div class="song-container">
+        <div class="song-container flex">
         <div class="player-container">
-        <p class="song--info">Song #${song.id}. ${song.artist}- ${
-      song.title
-    }</p>
+        <p class="song--info">Song #${song.id}. ${song.artist}- ${song.title}</p>
         ${iframe(song.url)}
         </div>
         <div class="comment-container">
