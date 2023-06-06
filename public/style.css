@@ -1,4 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+
 body {
     background-color: #212529;
+    font-family: 'Rubik', sans-serif;
     color: white;
+    margin: 0;
+}
+
+.home-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3vh;
+    height: 100vh;
+}
+
+.logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 5px solid gray;
+    background-color: rgba(128, 128, 128, 0.255);
+    border-radius: 5%;
+    -webkit-border-radius: 5%;
+    -moz-border-radius: 5%;
+    -ms-border-radius: 5%;
+    -o-border-radius: 5%;
+}
+
+.logo--login {
+    font-size: clamp(2rem, 15vmin, 10rem);
+    width: 40vmin;
+    height: 30vmin;
+}
+
+.home-content-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(43, 43, 43, 0.255);
+    padding: 8px;
+    border: 2px solid white;
+    border-radius: 2%;
+    -webkit-border-radius: 2%;
+    -moz-border-radius: 2%;
+    -ms-border-radius: 2%;
+    -o-border-radius: 2%;
+}
+
+.places-list {
+    margin-block-start: 0;
+    font-size: 1.3rem;
+    list-style-type: none;
+    color: rgb(161, 161, 161);
+    justify-self: end;
+}
+
+.btn {
+    border: 5px solid gray;
+    background-color: rgba(128, 128, 128, 0.255);
+    color: rgb(161, 161, 161);   
+}
+.btn__login{
+    font-size: 1.3rem;
+    padding: 10px;
+}
+
+.header {
+    
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 1rem;
+    background-color: rgba(43, 43, 43, 0.255);
+    border-bottom: 2px solid white;
+}
+
+.logo--header {
+    width: 4vmin;
+    height: 3vmin;
+    font-size: clamp(0.1rem, 2vmin, 1rem);
+}
+
+.header--h1 {
+    font-size: 1.2rem;
+}
+.header--h2 {
+    font-size: 1rem;
+    color: rgb(161, 161, 161);
+}
+
+.flex{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
 }
