@@ -1,6 +1,12 @@
+import { getClient } from '../api.js';
+
+const LOGIN_URL = `https://github.com/login/oauth/authorize?client_id=${
+  getClient().id
+}`;
+
 export function get(req, res) {
-  const LOGIN_URL = `https://github.com/login/oauth/authorize?client_id=${process.env.CLIENT_ID}`;
   const user = req.signedCookies?.user;
+  console.log(LOGIN_URL);
   if (user) {
     res.send(`<h1>Welcome ${user.login}</h1>`);
   } else {

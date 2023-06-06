@@ -1,3 +1,4 @@
+import { query } from 'express';
 import * as api from '../api.js';
 
 // this is the route GitHub redirects users back to after the log in
@@ -5,7 +6,9 @@ import * as api from '../api.js';
 // we need to POST this code to GH to get an access_token for talking to their API
 
 export default function auth(req, res) {
+  console.log('auth');
   const code = req.query.code;
+  console.log('🚀~ auth ~ code:', code);
   api
     .getToken(code)
     .then(api.getUser)

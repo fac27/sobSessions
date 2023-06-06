@@ -1,14 +1,25 @@
 import fetch from 'node-fetch';
 
-const client_id = process.env.CLIENT_ID;
-const client_secret = process.env.CLIENT_SECRET;
+import dotenv from 'dotenv';
+dotenv.config({ path: process.cwd() + '/.env' });
+
+export const getClient = () => {
+  return {
+    id: process.env.CLIENT_ID,
+    secret: process.env.CLIENT_SECRET,
+  };
+};
 
 const TOKEN_URL = 'https://github.com/login/oauth/access_token';
 
 export function getToken(code) {
   console.log('initial ' + client_id);
 
-  const body = { client_id, client_secret, code };
+  const body = {
+    client_id: getClient().id,
+    client_secret: getClient().secret,
+    code,
+  };
   console.log(body);
   return fetch(TOKEN_URL, {
     method: 'POST',
@@ -56,8 +67,8 @@ const REFRESH_URL = 'https://github.com/login/oauth/access_token';
 export function refreshToken(response) {
   console.log('refresh ' + client_id);
   const body = {
-    client_id: client_id,
-    client_secret: client_secret,
+    client_id: getClient().id,
+    client_secret: getClient().secret,
     refresh_token: response.refresh_token,
     grant_type: 'refresh_token',
   };
