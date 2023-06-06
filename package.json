@@ -29,12 +29,13 @@
   "dependencies": {
     "better-sqlite3": "^8.4.0",
     "cookie-parser": "^1.4.6",
+    "dotenv": "^16.1.4",
     "express": "^4.18.2"
   },
   "devDependencies": {
     "@babel/core": "^7.22.1",
     "@babel/preset-env": "^7.22.4",
-    "dotenv": "^16.1.4",
+    "@flydotio/dockerfile": "^0.2.14",
     "eslint": "^8.42.0",
     "eslint-config-kentcdodds": "^20.5.0",
     "esm": "^3.2.25",
