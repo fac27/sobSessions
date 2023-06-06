@@ -14,7 +14,7 @@ export function middleware(req, res, next) {
   //   logout(req, res);
   //   return next();
   // } else {
-  req.session = { ...req.signedCookies };
+  req.session = req.signedCookies;
   // }
   return next();
 }

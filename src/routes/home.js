@@ -5,8 +5,8 @@ const LOGIN_URL = `https://github.com/login/oauth/authorize?client_id=${
 }`;
 
 export function get(req, res) {
-  const user = req.signedCookies?.user;
-  console.log(LOGIN_URL);
+  const user = req?.session.user;
+  console.log(user.login);
   if (user) {
     res.send(`<h1>Welcome ${user.login}</h1>`);
   } else {
