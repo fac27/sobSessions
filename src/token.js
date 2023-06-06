@@ -1,15 +1,21 @@
 export function middleware(req, res, next) {
-  if (!req.signedCookies?.token) return next();
-
-  const user = req.signedCookies.user;
-
-  if (user) {
-    logout(req, res);
+  if (
+    !req.signedCookies?.user ||
+    !req.signedCookies?.refresh_token ||
+    !req.signedCookies?.access_token
+  )
     return next();
-  } else {
-    const parts = cookie.split('=');
-    req.session = { ...parts };
-  }
+
+  // either store acces_tokens in db with an expiry or check valid access token with fetch
+
+  // const user = req.signedCookies.user;
+  console.log(req.signedCookies);
+  // if (user) {
+  //   logout(req, res);
+  //   return next();
+  // } else {
+  req.session = { ...req.signedCookies };
+  // }
   return next();
 }
 
