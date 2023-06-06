@@ -2,7 +2,8 @@ import express from 'express';
 import cookieParser from 'cookie-parser';
 import * as token from './token.js';
 import auth from './routes/auth.js';
-// import home from './routes/home.js';
+import * as home from './routes/home.js';
+import * as songs from './routes/songs.js';
 import dotenv from 'dotenv';
 dotenv.config();
 
@@ -17,7 +18,8 @@ server.use(cookies);
 
 server.use(token.middleware);
 
-// server.get('/', home.get);
 server.get('/authentication', auth);
+server.get('/', home.getHome);
+server.get('/songs', songs.getSongs);
 
 export default server;
