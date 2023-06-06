@@ -33,25 +33,28 @@ export function getToken(code) {
 
 const USER_URL = 'https://api.github.com/user';
 
-export function getUser(response) {
+export function getUser(user) {
   return fetch(USER_URL, {
     headers: {
       accept: 'application/json',
-      authorization: `token ${response.access_token}`,
+      authorization: `token ${user.access_token}`,
     },
   })
     .then(async (res) => {
-      console.log('status ', res.status, res.statusCode);
-      if (res.status !== 401) return res;
+      console.log('status ', res.status);
+      if (res.status != 401) return res;
       const res2 = await refreshToken(res);
-      if (res2.status === 401) throw new Error('Refresh token failed');
+      if (res2.status == 401) throw new Error('Refresh token failed');
       return res2;
     })
-    .then(getJson())
+    .then((res) => res.json())
     .then((json) => {
-      return { ...response, ...json };
+      return { ...user, ...json };
     })
-    .catch(() => res.redirect('/'));
+    .catch((err) => {
+      console.log('err getting user: ', err);
+      res.redirect('/');
+    });
 }
 
 function getJson(response) {
