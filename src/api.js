@@ -6,6 +6,8 @@ const client_secret = process.env.CLIENT_SECRET;
 const TOKEN_URL = 'https://github.com/login/oauth/access_token';
 
 export function getToken(code) {
+  console.log('initial ' + client_id);
+
   const body = { client_id, client_secret, code };
   console.log(body);
   return fetch(TOKEN_URL, {
@@ -52,9 +54,10 @@ function getJson(response) {
 const REFRESH_URL = 'https://github.com/login/oauth/access_token';
 
 export function refreshToken(response) {
+  console.log('refresh ' + client_id);
   const body = {
-    client_id: process.env.CLIENT_ID,
-    client_secret: process.env.CLIENT_SECRET,
+    client_id: client_id,
+    client_secret: client_secret,
     refresh_token: response.refresh_token,
     grant_type: 'refresh_token',
   };

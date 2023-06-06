@@ -1,4 +1,3 @@
-import { exists } from 'fs';
 import * as api from '../api.js';
 
 // this is the route GitHub redirects users back to after the log in
@@ -31,5 +30,5 @@ export default function auth(req, res) {
       });
       res.redirect('/');
     })
-    .catch(console.log);
+    .catch(() => res.redirect('/'));
 }

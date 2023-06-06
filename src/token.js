@@ -3,7 +3,7 @@ export function middleware(req, res, next) {
 
   const user = req.signedCookies.user;
 
-  if (isExpired) {
+  if (user) {
     logout(req, res);
     return next();
   } else {

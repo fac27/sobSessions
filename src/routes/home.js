@@ -1,10 +1,6 @@
-const client_id = process.env.CLIENT_ID;
-
-const LOGIN_URL = `https://github.com/login/oauth/authorize?client_id=${client_id}`;
-
 export function get(req, res) {
-  const user = req.signedCookies.user;
-  console.log(user);
+  const LOGIN_URL = `https://github.com/login/oauth/authorize?client_id=${process.env.CLIENT_ID}`;
+  const user = req.signedCookies?.user;
   if (user) {
     res.send(`<h1>Welcome ${user.login}</h1>`);
   } else {
