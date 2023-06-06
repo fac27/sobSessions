@@ -1,11 +1,8 @@
 export function middleware(req, res, next) {
   if (!req.signedCookies?.token) return next();
 
-  const cookie = req.signedCookies.token;
+  const user = req.signedCookies.user;
 
-  // check token is valid on github auth otherwise get refresh_token
-
-  // const isExpired = new Date() > new Date(session.expires_at);
   if (isExpired) {
     logout(req, res);
     return next();

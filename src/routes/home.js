@@ -2,8 +2,24 @@ const client_id = process.env.CLIENT_ID;
 
 const LOGIN_URL = `https://github.com/login/oauth/authorize?client_id=${client_id}`;
 
-// const title = `ಥ_ಥ`;
-// const content = /*html*/ `
+export function get(req, res) {
+  const user = req.signedCookies.user;
+  console.log(user);
+  if (user) {
+    res.send(`<h1>Welcome ${user.login}</h1>`);
+  } else {
+    res.send(`
+      <h1>Welcome</h1>
+      <a href="${LOGIN_URL}">Log in with GitHub</a>
+    `);
+  }
+}
+
+// import { layout } from "../template.js";
+
+// export function getHome(req, res) {
+//   const title = `ಥ_ಥ`;
+//   const content = /*html*/ `
 //     <div class="logo logo--login">
 //     <p>ಥ_ಥ</p>
 //     </div>
@@ -17,17 +33,7 @@ const LOGIN_URL = `https://github.com/login/oauth/authorize?client_id=${client_i
 //     </div>
 //     <button>Login w/ Github</button>`;
 
-// const response = layout({ title, content });
+//   const response = layout({ title, content });
 
-export function get(req, res) {
-  const user = req.signedCookies.user;
-  console.log(user);
-  if (user) {
-    res.send(`<h1>Welcome ${user.login}</h1>`);
-  } else {
-    res.send(`
-      <h1>Welcome</h1>
-      <a href="${LOGIN_URL}">Log in with GitHub</a>
-    `);
-  }
-}
+//   res.send(response);
+// }
