@@ -4,25 +4,23 @@ import iframe from "./components/iframe.js";
 import interactionsForm from "./components/interactions-form.js";
 import { getAllSongs, getSongId } from "../model/songs.js";
 import { createInteraction } from "../model/interactions.js";
+import songsHTML from "./components/songsHTML.js";
+import { getAllSongs } from "../model/songs.js";
 
 export function get(req, res) {
   const title = `Top 10`;
   const songsArr = getAllSongs();
-  // const songs = songsHTML(songsArr);
+  const songs = songsHTML(songsArr);
   const content = /*html*/ `
-  ${interactionsForm()}
-  `;
+    ${header()}
+    ${songs}
+    ${interactionsForm()}
+    `;
 
   const response = layout({ title, content });
 
   res.send(response);
 }
-
-
-
-
-
-
 
 
 export function post(req, res) {
