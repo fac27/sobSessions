@@ -7,7 +7,7 @@ export default function sessionMiddleware(req, res, next) {
 
   if (isExpired) {
     deleteSession(sid);
-    res.clearCookie('sid');
+    res.clearCookie("sid");
   } else {
     req.session = session;
   }

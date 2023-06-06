@@ -1,7 +1,7 @@
 import logo from "./logo.js";
 
-export default function header(){
-    return /*html*/`
+export default function header() {
+  return /*html*/ `
     <header class="header">
     <div class="header--headings">
     <div class="flex">
@@ -11,5 +11,5 @@ export default function header(){
     <h2 class="header--h2">...After you've dropped ur sandwich</h2>
     </div>
     <button class="btn">Logout</button>
-    </header>`
+    </header>`;
 }
