@@ -66,7 +66,7 @@ function getJson(response) {
 const REFRESH_URL = 'https://github.com/login/oauth/access_token';
 
 export function refreshToken(response) {
-  console.log('refresh ' + client_id);
+  console.log('refresh ' + getClient().id);
   const body = {
     client_id: getClient().id,
     client_secret: getClient().secret,
