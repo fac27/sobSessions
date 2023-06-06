@@ -41,6 +41,7 @@ export function getUser(response) {
     },
   })
     .then(async (res) => {
+      console.log('status ', res.status, res.statusCode);
       if (res.status !== 401) return res;
       const res2 = await refreshToken(res);
       if (res2.status === 401) throw new Error('Refresh token failed');

@@ -13,6 +13,7 @@ export default function auth(req, res) {
     .getToken(code)
     .then(api.getUser)
     .then((user) => {
+      console.log('auth user:', user);
       res.cookie('refresh_token', user.refresh_token, {
         httpOnly: true,
         signed: true,
