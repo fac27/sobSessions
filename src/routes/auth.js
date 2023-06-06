@@ -14,7 +14,18 @@ export default function auth(req, res) {
       // do some proper session cookie stuff etc
       // this is just an over-simplified example
       // so we just stick the username into the cookie
-      console.log(user);
+      res.cookie('refresh_token', user.refreshToken, {
+        httpOnly: true,
+        signed: true,
+        maxAge: 1000 * 60 * 60 * 24, // 1 day
+        sameSite: 'lax',
+      });
+      res.cookie('access_token', user.accessToken, {
+        httpOnly: true,
+        signed: true,
+        maxAge: 1000 * 60 * 60 * 24, // 1 day
+        sameSite: 'lax',
+      });
       res.cookie('user', user.login, {
         httpOnly: true,
         signed: true,

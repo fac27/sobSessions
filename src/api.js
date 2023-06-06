@@ -14,17 +14,22 @@ export function getToken(code) {
     // IMPORTANT: THESE HEADERS ARE REQUIRED
     // GH will do weird 404 errors if you don't specify exactly what data type you're sending
     headers: { accept: 'application/json', 'content-type': 'application/json' },
-  })
-    .then(getJson)
-    .then((data) => data.access_token);
+  }).then(getJson);
 }
 
 const USER_URL = 'https://api.github.com/user';
 
-export function getUser(token) {
+export function getUser(response) {
   return fetch(USER_URL, {
-    headers: { accept: 'application/json', authorization: `token ${token}` },
-  }).then((res) => getJson({ ...res, token }));
+    headers: {
+      accept: 'application/json',
+      authorization: `token ${response.access_token}`,
+    },
+  })
+    .then((res) => getJson(res))
+    .then((json) => {
+      return { ...response, ...json };
+    });
 }
 
 function getJson(response) {
