@@ -5,7 +5,7 @@ import interactionsForm from "./components/interactions-form.js";
 import { getAllSongs, getSongId } from "../model/songs.js";
 import { createInteraction } from "../model/interactions.js";
 import songsHTML from "./components/songsHTML.js";
-import { getAllSongs } from "../model/songs.js";
+
 
 export function get(req, res) {
   const title = `Top 10`;
