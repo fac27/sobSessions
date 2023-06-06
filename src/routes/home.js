@@ -21,5 +21,5 @@ export function get(req, res) {
 
   const response = layout({ title, content });
 
-  res.send(response);
-}
+    res.send(response);
+};

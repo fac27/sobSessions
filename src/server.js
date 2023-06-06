@@ -1,6 +1,6 @@
 import express from "express";
 import cookieParser from "cookie-parser";
-import serverMiddleware from "./session.js";
+//import serverMiddleware from "./session.js";
 import * as home from "./routes/home.js";
 import * as songs from "./routes/songs.js";
 import dotenv from "dotenv";
@@ -15,7 +15,7 @@ server.use(express.static("public"));
 
 server.use(cookies);
 
-server.use(serverMiddleware);
+// server.use(serverMiddleware);
 
 server.get("/", home.get);
 server.get("/songs", songs.get);
