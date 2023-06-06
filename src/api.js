@@ -1,6 +1,7 @@
 import fetch from 'node-fetch';
 
 import dotenv from 'dotenv';
+import { get } from 'superagent';
 dotenv.config({ path: process.cwd() + '/.env' });
 
 export const getClient = () => {
@@ -13,7 +14,7 @@ export const getClient = () => {
 const TOKEN_URL = 'https://github.com/login/oauth/access_token';
 
 export function getToken(code) {
-  console.log('initial ' + client_id);
+  console.log('initial ' + getClient().id);
 
   const body = {
     client_id: getClient().id,
