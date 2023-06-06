@@ -9,5 +9,5 @@ export default function interactionsForm() {
 
       <button type="submit">Submit</button>
     </form>
-  `
+  `;
 }
