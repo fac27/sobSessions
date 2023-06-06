@@ -7,6 +7,10 @@ import * as songs from './routes/songs.js';
 import dotenv from 'dotenv';
 dotenv.config();
 
+import dotenv from "dotenv";
+dotenv.config( {path: process.cwd() + '/.env'});
+
+    
 const server = express();
 
 const bodyParser = express.urlencoded({ extended: false });
