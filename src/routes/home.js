@@ -3,8 +3,9 @@ import {layout} from "../template.js";
 export function getHome(req, res){
     const title = `ಥ_ಥ`
     const content = /*html*/`
+    <div class="home-container">
     <div class="logo logo--login">
-    <p>ಥ_ಥ</p>
+    <p class="logo-text--login">ಥ_ಥ</p>
     </div>
     <h1>Top 10 songs to cry to...</h1>
     <div>
@@ -14,7 +15,8 @@ export function getHome(req, res){
         <li>...at the movies</li>
     </ul>
     </div>
-    <button>Login w/ Github</button>`
+    <button>Login w/ Github</button>
+    </div>`
 
     const response = layout({title, content});
 
