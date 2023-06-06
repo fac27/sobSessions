@@ -11,6 +11,11 @@ describe('GET /', () => {
       expect(response.status).toBe(200);
       expect(response.text).toMatch(/<html/);
     });
-
+  
+    it('should respond with the sobSessions logo text', async () => {
+      const logoText = 'ಥ_ಥ';
+      const response = await request(server).get('/');
+      expect(response.text).toContain(logoText);
+    });
     
   });
