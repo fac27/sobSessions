@@ -1,8 +1,8 @@
-import { layout}  from "../template.js";
+import { layout } from "../template.js";
 
-export function getSongs(req, res){
-    const title = `ಥ_ಥ`
-    const content = /*html*/`
+export function getSongs(req, res) {
+  const title = `ಥ_ಥ`;
+  const content = /*html*/ `
     <div class="lockup">
     <p>ಥ_ಥ</p>
     </div>
@@ -14,9 +14,9 @@ export function getSongs(req, res){
         <li>...at the movies</li>
     </ul>
     </div>
-    <button>Login w/ Github</button>`
+    <button>Login w/ Github</button>`;
 
-    const response = layout({title, content});
+  const response = layout({ title, content });
 
-    res.send(response);
-};
+  res.send(response);
+}

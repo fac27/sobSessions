@@ -1,4 +1,4 @@
-import db from '../database/db.js';
+import db from "../database/db.js";
 
 const select_all_songs = db.prepare(/*sql*/ `
   SELECT
@@ -9,8 +9,6 @@ const select_all_songs = db.prepare(/*sql*/ `
   FROM songs
   `);
 
- export function getAllSongs() {
+export function getAllSongs() {
   return select_all_songs.all();
- };
-
-
+}

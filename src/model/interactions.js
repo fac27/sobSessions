@@ -1,4 +1,4 @@
-import db from '../database/db.js';
+import db from "../database/db.js";
 
 // const insert_interaction = db.prepare(/*sql*/ `
 //   INSERT into interactions (id, git_user_id, song_id, rating, comment, created_at)
@@ -22,5 +22,5 @@ const select_interaction = db.prepare(/*sql*/ `
 `);
 
 export function getInteraction(id) {
-  return select_interaction.get(id)
+  return select_interaction.get(id);
 }
