@@ -37,5 +37,7 @@ A wireframe was created using [tldraw](https://www.tldraw.com/r/v2_E2B4vhDM-y3bh
 ![Screenshot 2023-06-06 at 09 45 37](https://github.com/fac27/sobSessions/assets/114364165/a83366c7-b996-40c0-8264-93c86821b1fa)
 
 ### Database design
-A databse was created using [db diagram](https://dbdiagram.io/d/647defc2722eb774946b948c)
-![Screenshot 2023-06-06 at 09 38 42](https://github.com/fac27/sobSessions/assets/114364165/3826fb20-8735-4989-9cb0-32299ff5422e)
+A database was created using [db diagram](https://dbdiagram.io/d/647defc2722eb774946b94
+![Screenshot 2023-06-06 at 10 19 21](https://github.com/fac27/sobSessions/assets/114364165/add629f0-0e90-4aa5-805e-de0675fed97d)
+8c)
+
