@@ -1,5 +1,5 @@
-export function layout({ title, content }){
-    return /*html*/ `
+export function layout({ title, content }) {
+  return /*html*/ `
       <!doctype html>
       <html lang="en">
         <head>
@@ -14,4 +14,4 @@ export function layout({ title, content }){
         </body>
       </html>
     `;
-};
+}
