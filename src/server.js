@@ -3,8 +3,9 @@ import cookieParser from 'cookie-parser';
 import serverMiddleware from './session.js';
 import { getHome } from './routes/home.js';
 import { getSongs } from './routes/songs.js';
-import dotenv from 'dotenv';
-dotenv.config();
+import { config } from 'dotenv';
+
+config();
 
 const server = express();
 
