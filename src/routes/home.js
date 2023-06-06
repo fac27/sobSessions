@@ -1,23 +1,22 @@
 import {layout} from "../template.js";
+import logo from "../routes/components/logo.js";
 
-export function getHome(req, res){
+export function get(req, res){
     const title = `ಥ_ಥ`
     const content = /*html*/`
     <div class="home-container">
-    <div class="logo logo--login">
-    <p class="logo-text--login">ಥ_ಥ</p>
-    </div>
+    ${logo("login")}
     <div class="home-content-container">
     <h1>Top 10 songs to cry to...</h1>
-    <div class="places">
-    <ul>
+    <div>
+    <ul class="places-list">
         <li>...in the bath</li>
         <li>...at the park</li>
         <li>...at the movies</li>
     </ul>
     </div>
     </div>
-    <button>Login w/ Github</button>
+    <button class="btn btn__login">Login w/ Github</button>
     </div>`
 
     const response = layout({title, content});
