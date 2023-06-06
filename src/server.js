@@ -19,7 +19,7 @@ server.use(cookies);
 server.use(token.middleware);
 
 server.get('/authentication', auth);
-server.get('/', home.getHome);
-server.get('/songs', songs.getSongs);
+server.get('/', home.get);
+server.get('/songs', songs.get);
 
 export default server;
