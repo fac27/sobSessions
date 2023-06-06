@@ -26,10 +26,17 @@ export function getUser(response) {
       authorization: `token ${response.access_token}`,
     },
   })
-    .then((res) => getJson(res))
+    .then(async (res) => {
+      if (res.status !== 401) return res;
+      const res2 = await refreshToken(res);
+      if (res2.status === 401) throw new Error('Refresh token failed');
+      return res2;
+    })
+    .then(getJson())
     .then((json) => {
       return { ...response, ...json };
-    });
+    })
+    .catch(() => res.redirect('/'));
 }
 
 function getJson(response) {
@@ -40,4 +47,23 @@ function getJson(response) {
     throw error;
   }
   return response.json();
+}
+
+const REFRESH_URL = 'https://github.com/login/oauth/access_token';
+
+export function refreshToken(response) {
+  const body = {
+    client_id: process.env.CLIENT_ID,
+    client_secret: process.env.CLIENT_SECRET,
+    refresh_token: response.refresh_token,
+    grant_type: 'refresh_token',
+  };
+  return fetch(REFRESH_URL, {
+    method: 'POST',
+    body: JSON.stringify(body),
+    headers: {
+      'Content-Type': 'application/json',
+      Accept: 'application/json',
+    },
+  }).then(getJson());
 }

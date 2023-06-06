@@ -1,3 +1,4 @@
+import { exists } from 'fs';
 import * as api from '../api.js';
 
 // this is the route GitHub redirects users back to after the log in
@@ -10,17 +11,13 @@ export default function auth(req, res) {
     .getToken(code)
     .then(api.getUser)
     .then((user) => {
-      // probably create a new user in your own DB here
-      // do some proper session cookie stuff etc
-      // this is just an over-simplified example
-      // so we just stick the username into the cookie
-      res.cookie('refresh_token', user.refreshToken, {
+      res.cookie('refresh_token', user.refresh_token, {
         httpOnly: true,
         signed: true,
         maxAge: 1000 * 60 * 60 * 24, // 1 day
         sameSite: 'lax',
       });
-      res.cookie('access_token', user.accessToken, {
+      res.cookie('access_token', user.access_token, {
         httpOnly: true,
         signed: true,
         maxAge: 1000 * 60 * 60 * 24, // 1 day
@@ -33,5 +30,6 @@ export default function auth(req, res) {
         sameSite: 'lax',
       });
       res.redirect('/');
-    });
+    })
+    .catch(console.log);
 }
