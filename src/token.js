@@ -30,7 +30,7 @@ export async function middleware(req, res, next) {
     })
       .then((res) => res.json())
       .then((json) => {
-        console.log("json: " + json)
+        console.log("json: " + JSON.stringify(json))
         return json.valid})
       .catch((error) => console.log(error));
   }
