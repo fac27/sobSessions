@@ -10,12 +10,14 @@ export async function middleware(req, res, next) {
 
   // either store access_tokens in db with an expiry or check valid access token with fetch
   async function validToken() {
-    const body = req.signedCookies;
+    const cookies = req.signedCookies;
+    const body = {};
     return await fetch(VALIDATE_URL, {
-      method: 'post',
+      method: 'POST',
       headers: {
         accept: 'application/json',
         'content-type': 'application/json',
+        authorization: `token ${body.access_token}`,
       },
       body: JSON.stringify(body),
     })
