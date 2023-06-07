@@ -1,4 +1,4 @@
-import db from '../database/db.js';
+import db from "../database/db.js";
 
 const select_all_songs = db.prepare(/*sql*/ `
 SELECT

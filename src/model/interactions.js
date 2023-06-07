@@ -1,4 +1,4 @@
-import db from '../database/db.js';
+import db from "../database/db.js";
 
 const get_avg_ratings = db.prepare(/*sql*/ `
 SELECT AVG(rating) AS avg
