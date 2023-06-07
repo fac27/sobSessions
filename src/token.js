@@ -1,4 +1,6 @@
-const VALIDATE_URL = 'https://api.github.com/applications/validate_token';
+import { getClient } from "./api";
+
+const VALIDATE_URL = `https://api.github.com/applications/${getClient().id}/token`;
 
 export async function middleware(req, res, next) {
   if (
@@ -9,29 +11,25 @@ export async function middleware(req, res, next) {
     return next();
 
   // either store access_tokens in db with an expiry or check valid access token with fetch
-  async function validToken() {
-    const cookies = req.signedCookies;
-    const body = {};
+  async function validateToken() {
+    const body = {access_token: req.signedCookies.access_token};
     return await fetch(VALIDATE_URL, {
       method: 'POST',
       headers: {
-        accept: 'application/json',
-        'content-type': 'application/json',
-        authorization: `token ${body.access_token}`,
+        accept: 'application/vnd.github+json',
       },
       body: JSON.stringify(body),
     })
       .then((res) => res.json())
       .then((json) => json.valid);
   }
-  const isValidToken = await validToken();
+  const isValidToken = await validateToken();
+  console.log(isValidToken)
   if (!isValidToken) {
     console.log('invalid token', isValidToken);
     logout(req, res);
     return next();
-  } else {
-    req.session = req.signedCookies;
-  }
+  } 
   return next();
 }
 
