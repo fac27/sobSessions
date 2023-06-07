@@ -141,6 +141,11 @@ body {
     font-size: 1.4rem;
 }
 
+.comment figure {
+    margin: 0;
+    padding: 0;
+}
+
 .margin-block-start-0 {
     margin-block-start: 0;
 }

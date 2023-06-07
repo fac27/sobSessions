@@ -1,9 +1,7 @@
 import { getSongInteraction } from '../../model/interactions.js';
-import { getAllSongs } from '../../model/songs.js';
 import iframe from './iframe.js';
 import stars from './stars.js';
 import interactionsForm from './interactions-form.js';
-
 
 export default function songsHTML(songsArr) {
   return songsArr
@@ -36,5 +34,3 @@ export default function songsHTML(songsArr) {
     })
     .join('');
 }
-
-
