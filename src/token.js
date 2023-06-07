@@ -27,6 +27,7 @@ export async function middleware(req, res, next) {
       method: 'POST',
       headers: {
         accept: 'application/vnd.github+json',
+        Authorization: 'Bearer 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',
       },
       body: JSON.stringify(body),
     })
@@ -36,12 +37,12 @@ export async function middleware(req, res, next) {
   const validateTokenResponse = await validateToken();
   console.log('validate message: ', validateTokenResponse);
   if (validateTokenResponse == 404) {
-    console.log('invalid token', isValidToken);
+    console.log('invalid token');
     logout(req, res);
     req.sessionIsValid = false;
     return next();
   } else if (validateTokenResponse == 200) {
-    console.log('valid token', isValidToken);
+    console.log('valid token');
     req.sessionIsValid = true;
     return next();
   } else {
