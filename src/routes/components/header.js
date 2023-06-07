@@ -1,4 +1,4 @@
-import logo from "./logo.js";
+import logo from './logo.js';
 
 export default function header() {
   return /*html*/ `
@@ -6,7 +6,7 @@ export default function header() {
     <div class="header--headings">
     <div class="flex">
     <h1 class="header--h1">Top 10 songs to cry to...</h1>
-    ${logo("header")}
+    ${logo('header')}
     </div>
     <h2 class="header--h2">...After you've dropped ur sandwich</h2>
     </div>

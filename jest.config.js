@@ -3,6 +3,7 @@ module.exports = {
   roots: ['<rootDir>/test'],
   moduleFileExtensions: ['js'],
   testMatch: ['**/*.test.js'],
-  transform: {},
-  setupFilesAfterEnv: ['esm']
+  transform: {
+    '^.+\\.jsx?$': 'babel-jest',
+  },
 };

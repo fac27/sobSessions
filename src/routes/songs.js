@@ -1,11 +1,11 @@
-import { layout } from "../template.js";
-import header from "./components/header.js";
-import iframe from "./components/iframe.js";
-import { getAllSongs, getSongId } from "../model/songs.js";
-import { createInteraction } from "../model/interactions.js";
-import songsHTML from "./components/songsHTML.js";
+import { layout } from '../template.js';
+// import { getAllSongs, getSongId } from '../model/songs.js';
+import { getAllSongs } from '../model/songs.js';
+import { createInteraction } from '../model/interactions.js';
+import header from './components/header.js';
+import songsHTML from './components/songsHTML.js';
 
-export function get(req, res) {
+export function get(_, res) {
   const title = `Top 10`;
   const songsArr = getAllSongs();
   const songs = songsHTML(songsArr);
@@ -24,5 +24,5 @@ export function post(req, res) {
   const { comment, rating, song_id } = req.body;
   const interaction = { song_id, rating, comment };
   createInteraction(interaction);
-  res.redirect("/songs");
+  res.redirect('/songs');
 }

@@ -1,6 +1,6 @@
-import iframe from "./iframe.js";
-import stars from "./stars.js";
-import interactionsForm from "./interactions-form.js";
+import iframe from './iframe.js';
+import stars from './stars.js';
+import interactionsForm from './interactions-form.js';
 
 const commentsArr = [
   {
@@ -8,27 +8,27 @@ const commentsArr = [
     git_user_id: 1,
     song_id: 1,
     rating: 5,
-    comment: "I cried to this so much!!",
+    comment: 'I cried to this so much!!',
   },
   {
     id: 2,
     git_user_id: 1,
     song_id: 1,
     rating: 3,
-    comment: "Not that great to cry to :|",
+    comment: 'Not that great to cry to :|',
   },
   {
     id: 2,
     git_user_id: 1,
     song_id: 1,
     rating: 2,
-    comment: "I barely cried at all",
+    comment: 'I barely cried at all',
   },
 ];
 
 export default function songsHTML(songsArr) {
   return songsArr
-    .map((song) => {
+    .map(song => {
       return /*html*/ `
         <div class="song-container flex">
         <div class="player-container">
@@ -38,18 +38,18 @@ export default function songsHTML(songsArr) {
         </div>
         <div>
         ${commentsArr
-          .map((comment) => {
+          .map(comment => {
             return /*html*/ `
             <div class="comment">
             <p class="margin-block-end-0">${stars(comment.rating)}</p>
             <p class="margin-block-start-0">${comment.comment}</p>
             </div>`;
           })
-          .join("")}
+          .join('')}
           ${interactionsForm(song.id)}
         </div>
         </div>
         `;
     })
-    .join("");
+    .join('');
 }
