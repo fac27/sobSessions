@@ -1,4 +1,4 @@
-import { getClient } from "./api";
+import { getClient } from "./api.js";
 
 const VALIDATE_URL = `https://api.github.com/applications/${getClient().id}/token`;
 
