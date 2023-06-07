@@ -22,10 +22,10 @@ VALUES
 INSERT INTO
     interactions (song_id, rating, comment)
 VALUES
-    (1, 4, 'trash'),
-    (1, 3, 'amazballs'),
-    (2, 2, 'white trash'),
-    (2, 4, 'try again'),
+    (1, 4, 'this song made me weep T.T'),
+    (1, 5, 'This destroyed me in exquisite ways.'),
+    (2, 2, 'i almost laughed?? poor effort'),
+    (2, 4, 'my bf broke up w/ me :()'),
     (3, 1, 'Not that great to cry to :|'),
     (3, 1, 'I barely cried at all')
      ON CONFLICT DO NOTHING;
