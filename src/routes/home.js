@@ -1,4 +1,4 @@
-import { getClient } from '../api.js';
+import { getClient } from "../api.js";
 
 const LOGIN_URL = `https://github.com/login/oauth/authorize?client_id=${
   getClient().id
@@ -18,16 +18,16 @@ const LOGIN_URL = `https://github.com/login/oauth/authorize?client_id=${
 //   }
 // }
 
-import { layout } from '../template.js';
-import logo from '../routes/components/logo.js';
+import { layout } from "../template.js";
+import logo from "../routes/components/logo.js";
 
 export function get(req, res) {
   const title = `ಥ_ಥ`;
   const user = req?.session?.name;
   const content = /*html*/ `
     <div class="home-container">
-    ${logo('login')}
-    <h1>Welcome ${user || ''}</h1>
+    ${logo("login")}
+    <h1>Welcome ${user || ""}</h1>
     <div class="home-content-container">
     <h1>Top 10 songs to cry to...</h1>
     <div>

@@ -20,9 +20,9 @@ export function middleware(req, res, next) {
 }
 
 function logout(req, res) {
-  console.log('logging out');
-  res.clearCookie('refresh_token');
-  res.clearCookie('access_token');
-  res.clearCookie('user');
-  res.redirect('/');
+  console.log("logging out");
+  res.clearCookie("refresh_token");
+  res.clearCookie("access_token");
+  res.clearCookie("user");
+  res.redirect("/");
 }
