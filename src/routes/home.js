@@ -18,7 +18,7 @@ export function get(req, res) {
     </ul>
     </div>
     </div>
-    <button class="btn btn__login">Login w/ Github</button>
+    <a class="btn btn__login" href="/songs">Login w/ Github</a>
     </div>`;
 
   const response = layout({ title, content });

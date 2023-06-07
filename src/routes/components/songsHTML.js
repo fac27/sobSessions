@@ -1,7 +1,9 @@
 import { getSongInteraction } from '../../model/interactions.js';
+import { getAllSongs } from '../../model/songs.js';
 import iframe from './iframe.js';
 import stars from './stars.js';
 import interactionsForm from './interactions-form.js';
+
 
 export default function songsHTML(songsArr) {
   return songsArr
@@ -10,9 +12,8 @@ export default function songsHTML(songsArr) {
       return /*html*/ `
         <div class="song-container flex">
         <div class="player-container">
-        <p class="song--info">
-        Song #${song.id}. ${song.artist}- ${song.title}</p>
         ${iframe(song.url)}
+        <p>Average rating: ${song.avg_rating}/5</p>
         </div>
         <div>
         ${commentsArr
@@ -35,3 +36,5 @@ export default function songsHTML(songsArr) {
     })
     .join('');
 }
+
+
