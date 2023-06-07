@@ -20,8 +20,9 @@ import { layout } from '../template.js';
 import logo from '../routes/components/logo.js';
 
 export function get(req, res) {
+  if (req.sessionIsValid) res.redirect('/songs');
   const title = `ಥ_ಥ`;
-  const user = req?.session?.name;
+  const user = req.signedCookies?.name;
   const content = /*html*/ `
     <div class="home-container">
     ${logo('login')}

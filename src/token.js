@@ -1,13 +1,16 @@
-import { getClient } from "./api.js";
-import * as songs from "../src/routes/songs.js";
+import { getClient } from './api.js';
+import * as songs from '../src/routes/songs.js';
 
-const VALIDATE_URL = `https://api.github.com/applications/${getClient().id}/token`;
+const VALIDATE_URL = `https://api.github.com/applications/${
+  getClient().id
+}/token`;
 
 export async function middleware(req, res, next) {
-  function checkCookies(object){
-    let bool = true
-    if (!object?.name || !object?.refresh_token || !object?.access_token) bool = false 
-    return bool
+  function checkCookies(object) {
+    let bool = true;
+    if (!object?.name || !object?.refresh_token || !object?.access_token)
+      bool = false;
+    return bool;
   }
   const hasCookies = checkCookies(req.signedCookies);
   // if (
@@ -19,7 +22,7 @@ export async function middleware(req, res, next) {
 
   // either store access_tokens in db with an expiry or check valid access token with fetch
   async function validateToken() {
-    const body = {access_token: req.signedCookies.access_token};
+    const body = { access_token: req.signedCookies.access_token };
     return await fetch(VALIDATE_URL, {
       method: 'POST',
       headers: {
@@ -32,14 +35,16 @@ export async function middleware(req, res, next) {
       .catch((error) => console.log(error));
   }
   const validateMessage = await validateToken();
+
   if (validateMessage.status == 404) {
     console.log('invalid token', isValidToken);
     logout(req, res);
+    req.sessionIsValid = false;
     return next();
-  } else if (validateMessage.status == 200){
-    res.send(songs.get(req, res));
+  } else if (validateMessage.status == 200) {
+    req.sessionIsValid = true;
+    return next();
   }
-  return next();
 }
 
 function logout(req, res) {
