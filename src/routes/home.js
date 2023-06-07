@@ -1,11 +1,11 @@
-import { layout } from "../template.js";
-import logo from "../routes/components/logo.js";
+import { layout } from '../template.js';
+import logo from '../routes/components/logo.js';
 
 export function get(req, res) {
   const title = `ಥ_ಥ`;
   const content = /*html*/ `
     <div class="home-container">
-    ${logo("login")}
+    ${logo('login')}
     <div class="home-content-container">
     <h1>Top 10 songs to cry to...</h1>
     <div>

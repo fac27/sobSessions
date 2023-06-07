@@ -10,7 +10,7 @@
     "dev": "nodemon ./src/index.js",
     "seed": "node ./src/database/seed.js",
     "prettier": "prettier --write \"src/**/*.js\"",
-    "lint": "npx eslint ."
+    "lint": "eslint ."
   },
   "repository": {
     "type": "git",
@@ -30,7 +30,8 @@
     "better-sqlite3": "^8.4.0",
     "cookie-parser": "^1.4.6",
     "dotenv": "^16.1.4",
-    "express": "^4.18.2"
+    "express": "^4.18.2",
+    "node-fetch": "^3.3.1"
   },
   "devDependencies": {
     "@babel/core": "^7.22.1",
@@ -38,6 +39,7 @@
     "@flydotio/dockerfile": "^0.2.14",
     "eslint": "^8.42.0",
     "eslint-config-kentcdodds": "^20.5.0",
+    "eslint-plugin-prettier": "^4.2.1",
     "esm": "^3.2.25",
     "jest": "^29.5.0",
     "nodemon": "^2.0.22",
