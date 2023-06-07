@@ -1,7 +1,7 @@
 import { layout } from '../template.js';
-import { getAllSongs, getSongId } from '../model/songs.js';
+// import { getAllSongs, getSongId } from '../model/songs.js';
+import { getAllSongs } from '../model/songs.js';
 import { createInteraction } from '../model/interactions.js';
-import interactionsForm from './components/interactions-form.js';
 import header from './components/header.js';
 import songsHTML from './components/songsHTML.js';
 
@@ -24,5 +24,5 @@ export function post(req, res) {
   const { comment, rating, song_id } = req.body;
   const interaction = { song_id, rating, comment };
   createInteraction(interaction);
-  res.redirect("/songs");
+  res.redirect('/songs');
 }

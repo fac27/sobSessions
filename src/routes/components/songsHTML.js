@@ -1,6 +1,6 @@
-import iframe from "./iframe.js";
-import stars from "./stars.js";
-import interactionsForm from "./interactions-form.js";
+import iframe from './iframe.js';
+import stars from './stars.js';
+import interactionsForm from './interactions-form.js';
 
 const commentsArr = [
   {
@@ -45,7 +45,7 @@ export default function songsHTML(songsArr) {
             <p class="margin-block-start-0">${comment.comment}</p>
             </div>`;
           })
-          .join("")}
+          .join('')}
           ${interactionsForm(song.id)}
         </div>
         </div>
