@@ -5,12 +5,12 @@ const VALIDATE_URL = `https://api.github.com/applications/${getClient().id}/toke
 
 
 export async function middleware(req, res, next) {
-  function hasCookies(object){
+  function checkCookies(object){
     let bool = true
     if (!object?.name || !object?.refresh_token || !object?.access_token) bool = false 
     return bool
   }
-  const hasCookies = hasCookies(req.signedCookies);
+  const hasCookies = checkCookies(req.signedCookies);
   // if (
   //   !req.signedCookies?.name ||
   //   !req.signedCookies?.refresh_token ||
