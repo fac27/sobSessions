@@ -13,7 +13,7 @@ export default function songsHTML(songsArr) {
         <div class="song-container flex">
         <div class="player-container">
         ${iframe(song.url)}
-        <p>${song.avg_rating}</p>
+        <p>Average rating: ${song.avg_rating}/5</p>
         </div>
         <div>
         ${commentsArr
