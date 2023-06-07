@@ -22,8 +22,9 @@ export async function middleware(req, res, next) {
       .then((res) => res.json())
       .then((json) => json.valid);
   }
-
-  if (!(await validToken())) {
+  const isValidToken = await validToken();
+  if (!isValidToken) {
+    console.log('invalid token', isValidToken);
     logout(req, res);
     return next();
   } else {
@@ -36,6 +37,6 @@ function logout(req, res) {
   console.log('logging out');
   res.clearCookie('refresh_token');
   res.clearCookie('access_token');
-  res.clearCookie('user');
+  res.clearCookie('name');
   res.redirect('/');
 }
