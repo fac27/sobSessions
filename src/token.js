@@ -2,8 +2,6 @@ import { getClient } from "./api.js";
 
 const VALIDATE_URL = `https://api.github.com/applications/${getClient().id}/token`;
 
-
-
 export async function middleware(req, res, next) {
   function checkCookies(object){
     let bool = true
@@ -29,14 +27,11 @@ export async function middleware(req, res, next) {
       body: JSON.stringify(body),
     })
       .then((res) => res.json())
-      .then((json) => {
-        console.log("json: " + JSON.stringify(json))
-        return json.valid})
+      .then((json) => json)
       .catch((error) => console.log(error));
   }
-  const isValidToken = await validateToken();
-  console.log("line 28: " + isValidToken)
-  if (!isValidToken) {
+  const validateMessage = await validateToken();
+  if (validateMessage.status == 404) {
     console.log('invalid token', isValidToken);
     logout(req, res);
     return next();
