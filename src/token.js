@@ -3,12 +3,13 @@ import { getClient } from "./api.js";
 const VALIDATE_URL = `https://api.github.com/applications/${getClient().id}/token`;
 
 export async function middleware(req, res, next) {
-  if (
-    !req.signedCookies?.name ||
-    !req.signedCookies?.refresh_token ||
-    !req.signedCookies?.access_token
-  )
-    return next();
+  const hasCookies = hasCookies(req.signedCookies);
+  // if (
+  //   !req.signedCookies?.name ||
+  //   !req.signedCookies?.refresh_token ||
+  //   !req.signedCookies?.access_token
+  // )
+  if (!hasCookies) return next();
 
   // either store access_tokens in db with an expiry or check valid access token with fetch
   async function validateToken() {
@@ -21,10 +22,13 @@ export async function middleware(req, res, next) {
       body: JSON.stringify(body),
     })
       .then((res) => res.json())
-      .then((json) => json.valid);
+      .then((json) => {
+        console.log(json.valid)
+        return json.valid})
+      .catch((error) => console.log(error));
   }
   const isValidToken = await validateToken();
-  console.log(isValidToken)
+  console.log("line 28: " + isValidToken)
   if (!isValidToken) {
     console.log('invalid token', isValidToken);
     logout(req, res);
@@ -39,4 +43,10 @@ function logout(req, res) {
   res.clearCookie('access_token');
   res.clearCookie('name');
   res.redirect('/');
+}
+
+function hasCookies(object){
+  let bool = true
+  if (!object?.name || !object?.refresh_token || !object?.access_token) bool = false 
+  return bool
 }
