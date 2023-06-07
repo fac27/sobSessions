@@ -9,7 +9,7 @@ export function get(req, res) {
   console.log('user', user);
   console.log('user session', req.signedCookies.name);
   if (user) {
-    res.send(`<h1>Welcome ${user?.name}</h1>`);
+    res.send(`<h1>Welcome ${user || 'unknown user'}</h1>`);
   } else {
     res.send(`
       <h1>Welcome</h1>
