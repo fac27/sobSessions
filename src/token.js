@@ -30,15 +30,12 @@ export async function middleware(req, res, next) {
       },
       body: JSON.stringify(body),
     })
-      .then((res) => res.json())
-      .then((json) => {
-        console.log(json);
-        return json;
-      })
+      .then((res) => res.status)
       .catch((error) => console.log(error));
   }
   const validateMessage = await validateToken();
   console.log('validate message: ', validateMessage);
+  console.log('validate message status: ', validateMessage.status);
   if (validateMessage.status == 404) {
     console.log('invalid token', isValidToken);
     logout(req, res);
