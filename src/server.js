@@ -20,5 +20,6 @@ server.use(cookies);
 
 server.get("/", home.get);
 server.get("/songs", songs.get);
+server.post("/songs", bodyParser, songs.post);
 
 export default server;
