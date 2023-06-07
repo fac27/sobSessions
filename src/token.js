@@ -2,7 +2,14 @@ import { getClient } from "./api.js";
 
 const VALIDATE_URL = `https://api.github.com/applications/${getClient().id}/token`;
 
+
+
 export async function middleware(req, res, next) {
+  function hasCookies(object){
+    let bool = true
+    if (!object?.name || !object?.refresh_token || !object?.access_token) bool = false 
+    return bool
+  }
   const hasCookies = hasCookies(req.signedCookies);
   // if (
   //   !req.signedCookies?.name ||
@@ -43,10 +50,4 @@ function logout(req, res) {
   res.clearCookie('access_token');
   res.clearCookie('name');
   res.redirect('/');
-}
-
-function hasCookies(object){
-  let bool = true
-  if (!object?.name || !object?.refresh_token || !object?.access_token) bool = false 
-  return bool
 }
