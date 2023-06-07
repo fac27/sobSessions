@@ -2,6 +2,10 @@
 
 This app is designed to allow users to interact with a selection of songs, adding their comments and ratings. Users should be able to view other users comments and ratings. They can sign up and create an account using OAuth.
 
+### Known Issues
+
+We aren't authenticating or deploying at the moment (thanks Bard!) so we have no way to track users or delete specific user posts.
+
 ### User Stories
 
 As a user,
@@ -22,7 +26,7 @@ npm install
 ```
 seed the data
 ```
-npm seed
+npm run seed
 ```
 Check that you have the correct version of Node 
 ```
@@ -40,4 +44,5 @@ A wireframe was created using [tldraw](https://www.tldraw.com/r/v2_E2B4vhDM-y3bh
 A database was created using [db diagram](https://dbdiagram.io/d/647defc2722eb774946b94
 ![Screenshot 2023-06-06 at 10 19 21](https://github.com/fac27/sobSessions/assets/114364165/add629f0-0e90-4aa5-805e-de0675fed97d)
 8c)
+
 
