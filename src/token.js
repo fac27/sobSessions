@@ -1,4 +1,5 @@
 import { getClient } from "./api.js";
+import * as songs from "../src/routes/songs.js";
 
 const VALIDATE_URL = `https://api.github.com/applications/${getClient().id}/token`;
 
@@ -35,7 +36,9 @@ export async function middleware(req, res, next) {
     console.log('invalid token', isValidToken);
     logout(req, res);
     return next();
-  } 
+  } else if (validateMessage.status == 200){
+    res.send(songs.get(req, res));
+  }
   return next();
 }
 
