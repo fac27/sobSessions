@@ -8,7 +8,6 @@ export default function interactionsForm(id) {
 
       <label for="rating"></label>
       <input 
-        style=""
         class="rating" 
         value="1" 
         name="rating" 
