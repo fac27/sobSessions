@@ -1,0 +1,37 @@
+{
+  "extends": [
+    "kentcdodds",
+    "plugin:prettier/recommended"
+  ],
+  "plugins": ["prettier"],
+  "env": {
+    "jest": true
+  },
+  "rules": {
+    "prettier/prettier": "error",
+    "no-unused-vars": [
+      "error",
+      { "argsIgnorePattern": "^_", "varsIgnorePattern": "^_", "args": "after-used" }
+    ]
+  },
+  "overrides": [
+    {
+      "files": ["*.js"],
+      "excludedFiles": "*.test.js",
+      "rules": {
+        "no-unused-vars": [
+          "error",
+          { "argsIgnorePattern": "^_", "varsIgnorePattern": "^_", "args": "after-used" }
+        ]
+      }
+    },
+    {
+      "files": ["*.test.js"],
+      "globals": {
+        "describe": "readonly",
+        "it": "readonly",
+        "expect": "readonly"
+      }
+    }
+  ]
+}
