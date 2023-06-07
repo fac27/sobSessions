@@ -3,8 +3,8 @@ import request from 'supertest';
 
 const PORT = process.env.PORT || 3333;
 
-describe('GET /', () => {
-    it('responds contains html tag ', async () => {
+describe('GET home route handler', () => {
+    it('responds with an html tag ', async () => {
   
       const response = await request(server).get('/');
   
@@ -12,10 +12,9 @@ describe('GET /', () => {
       expect(response.text).toMatch(/<html/);
     });
   
-    it('should respond with the sobSessions logo text', async () => {
+    it('responds with the sobSessions logo text', async () => {
       const logoText = 'ಥ_ಥ';
       const response = await request(server).get('/');
       expect(response.text).toContain(logoText);
     });
-    
   });
