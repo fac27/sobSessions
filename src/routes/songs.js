@@ -24,5 +24,5 @@ export function post(req, res) {
   const { comment, rating, song_id } = req.body;
   const interaction = { song_id, rating, comment };
   createInteraction(interaction);
-  res.redirect('/songs');
+  res.redirect("/songs");
 }
