@@ -20,7 +20,11 @@ export default function songsHTML(songsArr) {
             return /*html*/ `
             <div class="comment">
             <p class="margin-block-end-0">${stars(comment.rating)}</p>
-            <p class="margin-block-start-0">${comment.comment}</p>
+            <p class="margin-block-start-0">${
+              comment.comment
+                ? comment.comment
+                : '<span class="emoji" role="img" aria-label="user left no comment">&#129296;<span>'
+            }</p>
             </div>`;
           })
           .join('')}
