@@ -1,6 +1,8 @@
 import { layout } from "../template.js";
 import logo from "../routes/components/logo.js";
 
+// testing purposes
+
 export function get(req, res) {
   const title = `ಥ_ಥ`;
   const content = /*html*/ `

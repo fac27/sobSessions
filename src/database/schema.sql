@@ -10,7 +10,7 @@ CREATE TABLE IF NOT EXISTS songs (
 );
 
 CREATE TABLE IF NOT EXISTS interactions (
-    id INTEGER PRIMARY KEY,
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
     -- git_user_id INTEGER NOT NULL,
     song_id INTEGER REFERENCES songs(id),
     rating INTEGER,
@@ -25,4 +25,3 @@ CREATE TABLE IF NOT EXISTS sessions (
 );
 
 COMMIT;
-
