@@ -35,7 +35,7 @@ export async function middleware(req, res, next) {
       .catch((error) => console.log(error));
   }
   const validateMessage = await validateToken();
-
+  console.log('validate message: ', validateMessage);
   if (validateMessage.status == 404) {
     console.log('invalid token', isValidToken);
     logout(req, res);
@@ -47,6 +47,7 @@ export async function middleware(req, res, next) {
     return next();
   } else {
     console.log('error', validateMessage);
+    console.log('req status: ', req.status);
     req.sessionIsValid = false;
     return next();
   }
