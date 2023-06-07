@@ -25,6 +25,9 @@ VALUES
     (1, 4, 'trash'),
     (1, 3, 'amazballs'),
     (2, 2, 'white trash'),
-    (2, 4, 'try again') ON CONFLICT DO NOTHING;
+    (2, 4, 'try again'),
+    (3, 1, 'Not that great to cry to :|'),
+    (3, 1, 'I barely cried at all')
+     ON CONFLICT DO NOTHING;
 
 COMMIT;

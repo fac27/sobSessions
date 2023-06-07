@@ -9,3 +9,16 @@ export function createInteraction(interaction) {
   insert_interaction.run(interaction);
   return [interaction];
 }
+
+const get_song_interactions = db.prepare(/*sql*/ `
+  SELECT 
+  id, 
+  song_id,
+  rating,
+  comment
+  FROM interactions WHERE song_id = ?
+  `);
+
+export function getSongInteraction(song_id) {
+  return get_song_interactions.all(song_id);
+}
