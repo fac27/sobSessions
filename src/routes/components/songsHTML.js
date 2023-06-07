@@ -1,5 +1,6 @@
 import iframe from "./iframe.js";
 import stars from "./stars.js";
+import interactionsForm from "./interactions-form.js";
 
 const commentsArr = [
   {
@@ -45,6 +46,7 @@ export default function songsHTML(songsArr) {
             </div>`;
           })
           .join("")}
+          ${interactionsForm(song.id)}
         </div>
         </div>
         `;
