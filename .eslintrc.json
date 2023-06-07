@@ -1,8 +1,5 @@
 {
-  "extends": [
-    "kentcdodds",
-    "plugin:prettier/recommended"
-  ],
+  "extends": ["kentcdodds", "plugin:prettier/recommended"],
   "plugins": ["prettier"],
   "env": {
     "jest": true
@@ -11,8 +8,13 @@
     "prettier/prettier": "error",
     "no-unused-vars": [
       "error",
-      { "argsIgnorePattern": "^_", "varsIgnorePattern": "^_", "args": "after-used" }
-    ]
+      {
+        "argsIgnorePattern": "^_",
+        "varsIgnorePattern": "^_",
+        "args": "after-used"
+      }
+    ],
+    "no-console": "error"
   },
   "overrides": [
     {
@@ -21,7 +23,11 @@
       "rules": {
         "no-unused-vars": [
           "error",
-          { "argsIgnorePattern": "^_", "varsIgnorePattern": "^_", "args": "after-used" }
+          {
+            "argsIgnorePattern": "^_",
+            "varsIgnorePattern": "^_",
+            "args": "after-used"
+          }
         ]
       }
     },

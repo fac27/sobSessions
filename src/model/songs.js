@@ -15,5 +15,3 @@ GROUP BY songs.id;
 export function getAllSongs() {
   return select_all_songs.all();
 }
-
-
