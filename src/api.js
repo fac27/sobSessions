@@ -1,8 +1,8 @@
-import fetch from "node-fetch";
+import fetch from 'node-fetch';
 
-import dotenv from "dotenv";
+import dotenv from 'dotenv';
 // import { get } from 'superagent';
-dotenv.config({ path: process.cwd() + "/.env" });
+dotenv.config({ path: process.cwd() + '/.env' });
 
 export const getClient = () => {
   return {
@@ -11,40 +11,36 @@ export const getClient = () => {
   };
 };
 
-const TOKEN_URL = "https://github.com/login/oauth/access_token";
+const TOKEN_URL = 'https://github.com/login/oauth/access_token';
 
 export function getToken(code) {
-  console.log("initial " + getClient().id);
-
   const body = {
     client_id: getClient().id,
     client_secret: getClient().secret,
     code,
   };
-  console.log(body);
   return fetch(TOKEN_URL, {
-    method: "POST",
+    method: 'POST',
     body: JSON.stringify(body),
     // IMPORTANT: THESE HEADERS ARE REQUIRED
     // GH will do weird 404 errors if you don't specify exactly what data type you're sending
-    headers: { accept: "application/json", "content-type": "application/json" },
+    headers: { accept: 'application/json', 'content-type': 'application/json' },
   }).then(getJson);
 }
 
-const USER_URL = "https://api.github.com/user";
+const USER_URL = 'https://api.github.com/user';
 
 export function getUser(user) {
   return fetch(USER_URL, {
     headers: {
-      accept: "application/json",
+      accept: 'application/json',
       authorization: `token ${user.access_token}`,
     },
   })
     .then(async (res) => {
-      console.log("status ", res.status);
       if (res.status != 401) return res;
       const res2 = await refreshToken(res);
-      if (res2.status == 401) throw new Error("Refresh token failed");
+      if (res2.status == 401) throw new Error('Refresh token failed');
       return res2;
     })
     .then((res) => res.json())
@@ -52,37 +48,35 @@ export function getUser(user) {
       return { ...user, ...json };
     })
     .catch((err) => {
-      console.log("err getting user: ", err);
-      res.redirect("/");
+      console.error('err getting user: ', err);
+      res.redirect('/');
     });
 }
 
 function getJson(response) {
   if (!response.ok) {
-    console.log(response);
-    const error = new Error("HTTP Error");
+    const error = new Error('HTTP Error');
     error.status = response.statusCode;
     throw error;
   }
   return response.json();
 }
 
-const REFRESH_URL = "https://github.com/login/oauth/access_token";
+const REFRESH_URL = 'https://github.com/login/oauth/access_token';
 
 export function refreshToken(response) {
-  console.log("refresh " + getClient().id);
   const body = {
     client_id: getClient().id,
     client_secret: getClient().secret,
     refresh_token: response.refresh_token,
-    grant_type: "refresh_token",
+    grant_type: 'refresh_token',
   };
   return fetch(REFRESH_URL, {
-    method: "POST",
+    method: 'POST',
     body: JSON.stringify(body),
     headers: {
-      "Content-Type": "application/json",
-      Accept: "application/json",
+      'Content-Type': 'application/json',
+      Accept: 'application/json',
     },
   }).then(getJson());
 }
