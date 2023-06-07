@@ -33,20 +33,19 @@ export async function middleware(req, res, next) {
       .then((res) => res.status)
       .catch((error) => console.log(error));
   }
-  const validateMessage = await validateToken();
-  console.log('validate message: ', validateMessage);
-  console.log('validate message status: ', validateMessage.status);
-  if (validateMessage.status == 404) {
+  const validateTokenResponse = await validateToken();
+  console.log('validate message: ', validateTokenResponse);
+  if (validateTokenResponse == 404) {
     console.log('invalid token', isValidToken);
     logout(req, res);
     req.sessionIsValid = false;
     return next();
-  } else if (validateMessage.status == 200) {
+  } else if (validateTokenResponse == 200) {
     console.log('valid token', isValidToken);
     req.sessionIsValid = true;
     return next();
   } else {
-    console.log('error', validateMessage);
+    console.log('error', validateTokenResponse);
     console.log('req status: ', req.status);
     req.sessionIsValid = false;
     return next();
