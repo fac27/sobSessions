@@ -8,9 +8,9 @@ const insert_interaction = db.prepare(/*sql*/ `
 export function createInteraction(interaction) {
   insert_interaction.run(interaction);
   return [interaction];
-};
+}
 
-const get_song_interaction = db.prepare(/*sql*/`
+const get_song_interactions = db.prepare(/*sql*/ `
   SELECT 
   id, 
   song_id,
@@ -20,6 +20,5 @@ const get_song_interaction = db.prepare(/*sql*/`
   `);
 
 export function getSongInteraction(song_id) {
-  return get_song_interaction.get(song_id)
-};
-
+  return get_song_interactions.all(song_id);
+}
