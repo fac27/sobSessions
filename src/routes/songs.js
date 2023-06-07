@@ -4,6 +4,7 @@ import songsHTML from './components/songsHTML.js';
 import { getAllSongs } from '../model/songs.js';
 
 export function get(req, res) {
+  console.log('session is valid for songs? :', req.sessionIsValid);
   if (!req.sessionIsValid) return res.redirect('/');
   const title = `Top 10`;
   const songsArr = getAllSongs();

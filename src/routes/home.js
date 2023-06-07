@@ -20,6 +20,7 @@ import { layout } from '../template.js';
 import logo from '../routes/components/logo.js';
 
 export function get(req, res) {
+  console.log('session is valid for home? :', req.sessionIsValid);
   if (req.sessionIsValid) return res.redirect('/songs');
   const title = `ಥ_ಥ`;
   const content = /*html*/ `

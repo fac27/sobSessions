@@ -31,7 +31,10 @@ export async function middleware(req, res, next) {
       body: JSON.stringify(body),
     })
       .then((res) => res.json())
-      .then((json) => json)
+      .then((json) => {
+        console.log(json);
+        return json;
+      })
       .catch((error) => console.log(error));
   }
   const validateMessage = await validateToken();
