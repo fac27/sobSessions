@@ -1,6 +1,6 @@
 export function middleware(req, res, next) {
   if (
-    !req.signedCookies?.user ||
+    !req.signedCookies?.name ||
     !req.signedCookies?.refresh_token ||
     !req.signedCookies?.access_token
   )
