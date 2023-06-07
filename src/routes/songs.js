@@ -12,7 +12,7 @@ export function get(_, res) {
   const content = /*html*/ `
     ${header()}
     ${songs}
-    ${interactionsForm()}
+    
     `;
 
   const response = layout({ title, content });
@@ -21,11 +21,8 @@ export function get(_, res) {
 }
 
 export function post(req, res) {
-  const { comment, rating } = req.body;
-  // const selected_song = // song id argument needs to come from the song the user has selected // for now, 1 is a placeholder
-  const song_id = getSongId(1).id;
-  const created_at = new Date().toLocaleTimeString('en-GB');
-
-  const interaction = { song_id, rating, comment, created_at };
-  const create_interaction = createInteraction(interaction);
+  const { comment, rating, song_id } = req.body;
+  const interaction = { song_id, rating, comment };
+  createInteraction(interaction);
+  res.redirect("/songs");
 }

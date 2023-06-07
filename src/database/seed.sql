@@ -1,14 +1,30 @@
 BEGIN;
 
-INSERT INTO songs (id, title, artist, url)
+INSERT INTO
+    songs (title, artist, url)
 VALUES
-  (1, 'Cry Me A River', 'Justin Timberlake', 'https://open.spotify.com/track/7Lf7oSEVdzZqTA0kEDSlS5'),
-  (2, 'Wash', 'Bon Iver', 'https://open.spotify.com/track/7rIhp6EWLNtM8qFIQruJPT'),
-  (3, 'River', 'Joni Mitchell', 'https://open.spotify.com/track/0DAmSYQW9kq9gQNDI002KP')
+    (
+        'Cry Me A River',
+        'Justin Timberlake',
+        'https://open.spotify.com/track/7Lf7oSEVdzZqTA0kEDSlS5'
+    ),
+    (
+        'Wash',
+        'Bon Iver',
+        'https://open.spotify.com/track/7rIhp6EWLNtM8qFIQruJPT'
+    ),
+    (
+        'River',
+        'Joni Mitchell',
+        'https://open.spotify.com/track/0DAmSYQW9kq9gQNDI002KP'
+    ) ON CONFLICT DO NOTHING;
 
-ON CONFLICT DO NOTHING;
+INSERT INTO
+    interactions (song_id, rating, comment)
+VALUES
+    (1, 4, 'trash'),
+    (1, 3, 'amazballs'),
+    (2, 2, 'white trash'),
+    (2, 4, 'try again') ON CONFLICT DO NOTHING;
 
 COMMIT;
-
-
-
