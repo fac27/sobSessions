@@ -5,6 +5,11 @@ const VALIDATE_URL = `https://api.github.com/applications/${
   getClient().id
 }/token`;
 
+import dotenv from 'dotenv';
+dotenv.config({ path: process.cwd() + '/.env' });
+
+console.log(process.env.GITHUB_TOKEN);
+
 export async function middleware(req, res, next) {
   function checkCookies(object) {
     let bool = true;
@@ -27,7 +32,7 @@ export async function middleware(req, res, next) {
       method: 'POST',
       headers: {
         accept: 'application/vnd.github+json',
-        Authorization: 'Bearer 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',
+        Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
       },
       body: JSON.stringify(body),
     })
