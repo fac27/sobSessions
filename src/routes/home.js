@@ -2,11 +2,8 @@ import { layout } from '../template.js';
 import logo from '../routes/components/logo.js';
 
 // testing purposes
-import { getAllSongs } from '../model/songs.js';
 
 export function get(req, res) {
-  const avg = getAllSongs();
-  console.log({ avg });
   const title = `ಥ_ಥ`;
   const content = /*html*/ `
     <div class="home-container">
