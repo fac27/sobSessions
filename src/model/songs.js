@@ -13,7 +13,7 @@ GROUP BY songs.id;
   `);
 
 export function getAllSongs() {
-  return select_all_songs.get();
+  return select_all_songs.all();
 }
 
 const get_song_id = db.prepare(/*sql*/ `\
