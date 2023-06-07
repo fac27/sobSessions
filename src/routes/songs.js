@@ -4,7 +4,7 @@ import songsHTML from './components/songsHTML.js';
 import { getAllSongs } from '../model/songs.js';
 
 export function get(req, res) {
-  if (!req.sessionIsValid) res.redirect('/');
+  if (!req.sessionIsValid) return res.redirect('/');
   const title = `Top 10`;
   const songsArr = getAllSongs();
   const songs = songsHTML(songsArr);

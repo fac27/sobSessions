@@ -42,6 +42,7 @@ export async function middleware(req, res, next) {
     req.sessionIsValid = false;
     return next();
   } else if (validateMessage.status == 200) {
+    console.log('valid token', isValidToken);
     req.sessionIsValid = true;
     return next();
   }

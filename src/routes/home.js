@@ -20,7 +20,7 @@ import { layout } from '../template.js';
 import logo from '../routes/components/logo.js';
 
 export function get(req, res) {
-  if (req.sessionIsValid) res.redirect('/songs');
+  if (req.sessionIsValid) return res.redirect('/songs');
   const title = `ಥ_ಥ`;
   const content = /*html*/ `
     <div class="home-container">
