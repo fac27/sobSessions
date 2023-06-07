@@ -1,5 +1,4 @@
 import { layout } from '../template.js';
-// import { getAllSongs, getSongId } from '../model/songs.js';
 import { getAllSongs } from '../model/songs.js';
 import { createInteraction } from '../model/interactions.js';
 import header from './components/header.js';

@@ -1,34 +1,12 @@
+import { getSongInteraction } from '../../model/interactions.js';
 import iframe from './iframe.js';
 import stars from './stars.js';
 import interactionsForm from './interactions-form.js';
 
-const commentsArr = [
-  {
-    id: 1,
-    git_user_id: 1,
-    song_id: 1,
-    rating: 5,
-    comment: 'I cried to this so much!!',
-  },
-  {
-    id: 2,
-    git_user_id: 1,
-    song_id: 1,
-    rating: 3,
-    comment: 'Not that great to cry to :|',
-  },
-  {
-    id: 2,
-    git_user_id: 1,
-    song_id: 1,
-    rating: 2,
-    comment: 'I barely cried at all',
-  },
-];
-
 export default function songsHTML(songsArr) {
   return songsArr
     .map(song => {
+      const commentsArr = getSongInteraction(song.id);
       return /*html*/ `
         <div class="song-container flex">
         <div class="player-container">
