@@ -1,5 +1,5 @@
 import { layout } from "../template.js";
-import logo from "../routes/components/logo.js";
+import logo from "./components/logo.js";
 
 // testing purposes
 

@@ -1,8 +1,8 @@
 import express from "express";
 import cookieParser from "cookie-parser";
 //// import serverMiddleware from "./session.js";
-import * as home from "./routes/home.js";
-import * as songs from "./routes/songs.js";
+import * as home from "./routes/home.routes.js";
+import * as songs from "./routes/songs.routes.js";
 
 import dotenv from "dotenv";
 dotenv.config({ path: process.cwd() + "/.env" });
