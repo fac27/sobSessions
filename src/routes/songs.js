@@ -1,7 +1,6 @@
 import { layout } from "../template.js";
 import header from "./components/header.js";
 import iframe from "./components/iframe.js";
-import interactionsForm from "./components/interactions-form.js";
 import { getAllSongs, getSongId } from "../model/songs.js";
 import { createInteraction } from "../model/interactions.js";
 import songsHTML from "./components/songsHTML.js";
@@ -14,7 +13,7 @@ export function get(req, res) {
   const content = /*html*/ `
     ${header()}
     ${songs}
-    ${interactionsForm()}
+    
     `;
 
   const response = layout({ title, content });
@@ -24,11 +23,8 @@ export function get(req, res) {
 
 
 export function post(req, res) {
-  const { comment, rating } = req.body;
-  // const selected_song = // song id argument needs to come from the song the user has selected // for now, 1 is a placeholder
-  const song_id = getSongId(1).id;
-  const created_at = new Date().toLocaleTimeString("en-GB");
-
-  const interaction = { song_id, rating, comment, created_at };
-  const create_interaction = createInteraction(interaction);
+  const { comment, rating, song_id } = req.body;
+  const interaction = { song_id, rating, comment };
+  createInteraction(interaction);
+  res.redirect('/songs');
 }
