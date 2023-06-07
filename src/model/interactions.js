@@ -1,13 +1,11 @@
 import db from '../database/db.js';
 
 const get_avg_ratings = db.prepare(/*sql*/ `
-SELECT id, AVG(rating) AS avg
+SELECT AVG(rating) AS avg
 FROM interactions`);
 
-export function getAvgRatings() {
-  const avgRatings = get_avg_ratings.get();
-  console.log(avgRatings);
-  return avgRatings;
+export function getAverageRatings() {
+  return get_avg_ratings.get();
 }
 
 const insert_interaction = db.prepare(/*sql*/ `

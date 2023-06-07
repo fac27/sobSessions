@@ -2,16 +2,15 @@ import { layout } from '../template.js';
 import logo from '../routes/components/logo.js';
 
 // testing purposes
-import { getAvgRatings } from '../model/interactions.js';
+import { getAllSongs } from '../model/songs.js';
 
 export function get(req, res) {
-  const avg = getAvgRatings();
+  const avg = getAllSongs();
   console.log({ avg });
   const title = `ಥ_ಥ`;
   const content = /*html*/ `
     <div class="home-container">
     ${logo('login')}
-    <h1>${avg}</h1>
     <div class="home-content-container">
     <h1>Top 10 songs to cry to...</h1>
     <div>
