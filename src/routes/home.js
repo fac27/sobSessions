@@ -7,7 +7,6 @@ const LOGIN_URL = `https://github.com/login/oauth/authorize?client_id=${
 }`;
 
 export function get(req, res) {
-  console.log('session is valid for home? :', req.sessionIsValid);
   if (req.sessionIsValid) return res.redirect('/songs');
   const title = `ಥ_ಥ`;
   const content = /*html*/ `
