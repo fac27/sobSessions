@@ -1,6 +1,6 @@
 # sobSessions
 
-A place for peiople who love a good cry to look at top 10 lists of songs to cry to in different places and leave ratings and comments.
+***A place for peiople who love a good cry to look at top 10 lists of songs to cry to in different places.***
 
 This app is designed to allow users to interact with a selection of songs, adding their comments and ratings. Users should be able to view other users comments and ratings. They can sign up and create an account using OAuth.
 
@@ -20,7 +20,7 @@ As a user,
 
 Clone the Repo 
 ```
-git clone "https://github.com/fac27/Haunts-of-the-high-street"
+git clone "https://github.com/fac27/sobSessions"
 ```
 Install dependencies 
 ```
