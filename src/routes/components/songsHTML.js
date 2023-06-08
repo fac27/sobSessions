@@ -1,6 +1,6 @@
 import { getSongInteraction } from '../../model/interactions.js';
 import iframe from './iframe.js';
-import stars from './stars.js';
+import { stars, starRating } from './stars.js';
 import interactionsForm from './interactions-form.js';
 
 function formatNumber(num) {
@@ -16,7 +16,7 @@ export default function songsHTML(songsArr) {
         <div class="song-container">
         <div class="player-container">
         ${iframe(song.url)}
-        <p>Average rating: ${formatNumber(song.avg_rating)}/5</p>
+        <p>Average rating: ${starRating(formatNumber(song.avg_rating))} ${formatNumber(song.avg_rating)}</p>
         </div>
         <div class="comments-container">
         ${commentsArr
