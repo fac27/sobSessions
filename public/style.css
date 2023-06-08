@@ -176,6 +176,10 @@ body {
     background-color: transparent;
 }
 
+.rating:hover {
+    cursor: pointer;
+}
+
 [dir="rtl"] .rating {
     --dir: left;
   }
@@ -185,6 +189,9 @@ body {
     -webkit-mask: repeat left center/var(--starsize) var(--symbol);
 }
 
-
-
-
+  .rating::-webkit-slider-thumb {
+    height: var(--starsize);
+    opacity: 0;
+    width: var(--starsize);
+    -webkit-appearance: none;
+  }
