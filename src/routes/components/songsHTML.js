@@ -8,7 +8,7 @@ export default function songsHTML(songsArr) {
     .map(song => {
       const commentsArr = getSongInteraction(song.id);
       return /*html*/ `
-        <div class="song-container flex">
+        <div class="song-container column">
         <div class="player-container">
         ${iframe(song.url)}
         <p>Average rating: ${song.avg_rating}/5</p>
