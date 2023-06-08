@@ -28,6 +28,7 @@ export async function middleware(req, res, next) {
   // either store access_tokens in db with an expiry or check valid access token with fetch
   async function validateToken() {
     const body = { access_token: req.signedCookies.access_token };
+    console.log({ access_token: req.signedCookies.access_token });
     return await fetch(VALIDATE_URL, {
       method: 'POST',
       headers: {
@@ -43,7 +44,7 @@ export async function middleware(req, res, next) {
   console.log('validate message: ', validateTokenResponse);
   if (validateTokenResponse == 404) {
     console.log('invalid token');
-    logout(req, res);
+    // logout(req, res);
     req.sessionIsValid = false;
     return next();
   } else if (validateTokenResponse == 200) {
