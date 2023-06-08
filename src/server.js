@@ -21,6 +21,7 @@ server.use(token.middleware);
 
 server.get('/authentication', auth);
 server.get('/', home.get);
+server.get('/logout', token.logout);
 server.get('/songs', songs.get);
 server.post('/songs', bodyParser, songs.post);
 

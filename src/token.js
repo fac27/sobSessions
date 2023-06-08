@@ -1,5 +1,4 @@
 import { getClient } from './api.js';
-import * as songs from '../src/routes/songs.js';
 
 const VALIDATE_URL = `https://api.github.com/applications/${
   getClient().id
@@ -62,11 +61,9 @@ export async function middleware(req, res, next) {
   return next();
 }
 
-function logout(req, res) {
-  console.log('logging out');
+export function logout(req, res) {
   res.clearCookie('refresh_token');
   res.clearCookie('access_token');
   res.clearCookie('name');
-  req.sessionIsValid = false;
-  // res.redirect('/');
+  res.redirect('/');
 }
