@@ -23,6 +23,9 @@
     "url": "https://github.com/fac27/sobSessions/issues"
   },
   "homepage": "https://github.com/fac27/sobSessions#readme",
+  "engines": {
+    "node": "18.16.0"
+  },
   "volta": {
     "node": "18.16.0"
   },

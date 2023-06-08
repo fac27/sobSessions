@@ -10,6 +10,6 @@ export default function header() {
     </div>
     <h2 class="header--h2">...After you've dropped ur sandwich</h2>
     </div>
-    <button class="btn">Logout</button>
+    <a class="btn" href='/logout'>Logout</a>
     </header>`;
 }

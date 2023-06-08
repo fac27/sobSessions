@@ -1,10 +1,11 @@
 import express from 'express';
 import cookieParser from 'cookie-parser';
-import dotenv from 'dotenv';
-//// import serverMiddleware from "./session.js";
+import * as token from './token.js';
+import auth from './routes/auth.js';
 import * as home from './routes/home.js';
 import * as songs from './routes/songs.js';
 
+import dotenv from 'dotenv';
 dotenv.config({ path: `${process.cwd()}/.env` });
 
 const server = express();
@@ -16,9 +17,11 @@ server.use(express.static('public'));
 
 server.use(cookies);
 
-// server.use(serverMiddleware);
+server.use(token.middleware);
 
+server.get('/authentication', auth);
 server.get('/', home.get);
+server.get('/logout', token.logout);
 server.get('/songs', songs.get);
 server.post('/songs', bodyParser, songs.post);
 
