@@ -10,6 +10,7 @@ export function get(req, res) {
   if (req.sessionIsValid) return res.redirect('/songs');
   const title = `ಥ_ಥ`;
   const content = /*html*/ `
+    <main>
     <div class="home-container">
     ${logo('login')}
     <h1>Welcome</h1>
@@ -24,7 +25,8 @@ export function get(req, res) {
     </div>
     </div>
     <a class="btn btn__login" href="${LOGIN_URL}">Log in with GitHub</a>
-    </div>`;
+    </div>
+    </main>`;
 
   const response = layout({ title, content });
 

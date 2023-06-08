@@ -12,8 +12,10 @@ export function get(req, res) {
   const songs = songsHTML(songsArr);
   const content = /*html*/ `
     ${header()}
+    <main class="all-songs-container">
     <h1> ${req.signedCookies.name} </h1>
     ${songs}
+    </main>
     `;
 
   const response = layout({ title, content });

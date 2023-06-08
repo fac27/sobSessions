@@ -116,25 +116,53 @@ body {
     padding: 7px;
     background-color: rgba(43, 43, 43, 0.255);
     border: 2px solid gray;
-    border-radius: 2%;
-    -webkit-border-radius: 2%;
-    -moz-border-radius: 2%;
-    -ms-border-radius: 2%;
-    -o-border-radius: 2%;
+    border-radius: 1%;
+    -webkit-border-radius: 1%;
+    -moz-border-radius: 1%;
+    -ms-border-radius: 1%;
+    -o-border-radius: 1%;
 }
 
 .player-container {
-    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+    width: 100%;
+
+}
+
+.comments-container{
+    padding: 5px;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+    gap: 1rem;
 }
 
 .comment {
+    padding: 0px;
+    width: 100%;
+    max-width: 700px;
+    margin-bottom: 10px;
     background-color: rgba(43, 43, 43, 0.255);
-    border: 2px solid white;
-    border-radius: 2%;
-    -webkit-border-radius: 2%;
-    -moz-border-radius: 2%;
-    -ms-border-radius: 2%;
-    -o-border-radius: 2%;
+    border: 1.5px solid rgba(255, 255, 255, 0.528);
+    border-radius: 1%;
+    -webkit-border-radius: 1%;
+    -moz-border-radius: 1%;
+    -ms-border-radius: 1%;
+    -o-border-radius: 1%;
+}
+
+.comment-overline {
+    background-color: rgb(176, 176, 176);
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    border-bottom: 2px solid rgba(108, 108, 108, 0.407);
+    padding: 5px;
 }
 
 .comment .emoji {
@@ -146,12 +174,20 @@ body {
     padding: 0;
 }
 
+.user-name {
+    color: rgb(0, 0, 0);
+}
+
 .margin-block-start-0 {
     margin-block-start: 0;
 }
 
 .margin-block-end-0 {
     margin-block-end: 0;
+}
+
+.margin-inline-start-05{
+    margin-inline-start: 0.5rem;
 }
 
 /* Rating stars */
@@ -188,3 +224,14 @@ body {
 
 
 
+@media only screen and (min-width: 768px) {
+    .all-songs-container {
+      flex-direction: row;
+      align-items: flex-start;
+    }
+  
+    .comments-container {
+      margin-top: 0;
+      width: auto;
+    }
+  }
