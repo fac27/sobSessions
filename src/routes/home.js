@@ -19,6 +19,8 @@ const LOGIN_URL = `https://github.com/login/oauth/authorize?client_id=${
 import { layout } from '../template.js';
 import logo from '../routes/components/logo.js';
 
+// testing purposes
+
 export function get(req, res) {
   console.log('session is valid for home? :', req.sessionIsValid);
   if (req.sessionIsValid) return res.redirect('/songs');

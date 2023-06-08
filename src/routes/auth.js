@@ -1,4 +1,3 @@
-import { query } from 'express';
 import * as api from '../api.js';
 
 // this is the route GitHub redirects users back to after the log in

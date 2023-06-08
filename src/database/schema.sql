@@ -10,8 +10,8 @@ CREATE TABLE IF NOT EXISTS songs (
 );
 
 CREATE TABLE IF NOT EXISTS interactions (
-    id INTEGER PRIMARY KEY,
-    git_user_id INTEGER NOT NULL,
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    -- git_user_id INTEGER NOT NULL,
     song_id INTEGER REFERENCES songs(id),
     rating INTEGER,
     comment TEXT,
