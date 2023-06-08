@@ -14,7 +14,7 @@ export function get(req, res) {
   const songs = songsHTML(songsArr);
   const content = /*html*/ `
     ${header()}
-    <h1>Welcome, ${req.signedCookies.name}!</h1>
+    <h1 class="greeting">Welcome, ${req.signedCookies.name}!</h1>
     <main class="all-songs-container">
     ${songs}
     </main>
