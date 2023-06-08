@@ -11,8 +11,9 @@ export function get(_, res) {
   const songs = songsHTML(songsArr);
   const content = /*html*/ `
     ${header()}
+    <main class="all-songs-container">
     ${songs}
-    
+    </main>
     `;
 
   const response = layout({ title, content });

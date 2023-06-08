@@ -6,6 +6,7 @@ import logo from '../routes/components/logo.js';
 export function get(req, res) {
   const title = `ಥ_ಥ`;
   const content = /*html*/ `
+    <main>
     <div class="home-container">
     ${logo('login')}
     <div class="home-content-container">
@@ -19,7 +20,8 @@ export function get(req, res) {
     </div>
     </div>
     <a class="btn btn__login" href="/songs">Login w/ Github</a>
-    </div>`;
+    </div>
+    </main>`;
 
   const response = layout({ title, content });
 
