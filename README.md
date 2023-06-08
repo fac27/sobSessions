@@ -1,6 +1,6 @@
 # sobSessions
 
-***A place for peiople who love a good cry to look at top 10 lists of songs to cry to in different places.***
+😭 ***A place for people who love a good cry to look at a lists of songs to cry to in different places.*** 😭
 
 This app is designed to allow users to interact with a selection of songs, adding their comments and ratings. Users should be able to view other users comments and ratings. They can sign up and create an account using OAuth.
 
@@ -38,6 +38,11 @@ If there are any issues accessing the fly website you can run locally
 ```
 npm run dev
 ```
+Run tests
+```
+npm run tests
+```
+
 ### UX
 A wireframe was created using [tldraw](https://www.tldraw.com/r/v2_E2B4vhDM-y3bh5FhSJRXa?viewport=298%2C-90%2C2003%2C1005&page=page%3A9VhkqMKi6LCu7kKg2lkFD)
 ![Screenshot 2023-06-06 at 09 45 37](https://github.com/fac27/sobSessions/assets/114364165/a83366c7-b996-40c0-8264-93c86821b1fa)
