@@ -9,9 +9,7 @@ export function layout({ title, content }) {
         <title>${title}</title>
         </head>
         <body>
-            <main>
               ${content}
-            </main>
         </body>
       </html>
     `;
