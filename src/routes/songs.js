@@ -7,7 +7,7 @@ import songsHTML from './components/songsHTML.js';
 
 export function get(req, res) {
   if (process.env.NODE_ENV === 'prod') {
-    if (!req.sessionIsValid) return res.redirect('/');
+  if (!req.sessionIsValid) return res.redirect('/');
   }
   const title = `Top 10`;
   const songsArr = getAllSongs();
