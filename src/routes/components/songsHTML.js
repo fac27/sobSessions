@@ -8,7 +8,7 @@ function formatNumber(num) {
   return parseFloat(n);
 }
 
-export default function songsHTML(songsArr) {
+export default function songsHTML(songsArr, name) {
   return songsArr
     .map(song => {
       const commentsArr = getSongInteraction(song.id);
@@ -35,7 +35,7 @@ export default function songsHTML(songsArr) {
             </div>`;
           })
           .join('')}
-          ${interactionsForm(song.id)}
+          ${interactionsForm(song.id, name)}
         </div>
         </div>
         `;

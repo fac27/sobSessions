@@ -164,6 +164,35 @@ body {
     padding: 5px;
 }
 
+.comment-submit-container{
+    display: flex;
+    gap: 0.5rem;
+}
+
+.comment-label-container{
+    display: flex;
+    flex-direction: column;
+}
+
+.input-form {
+    width: 100%;
+    background-color: rgb(176, 176, 176);
+    border: 2px solid rgba(108, 108, 108, 0.407);
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.btn-submit{
+    border: 1px solid gray;
+    color: black;
+    font-size: 1.5rem;
+    width: 2rem;
+    height: 2rem;
+    align-self: center;
+}
+
 .comment .emoji {
   font-size: 1.4rem;
 }

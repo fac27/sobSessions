@@ -1,12 +1,10 @@
 export default function interactionsForm(id) {
   return /*html*/ `
-    <form method="POST" action="/songs">
+    <form method="POST" action="/songs" class="input-form">
     <div>
       <input name="song_id" value=${id} hidden />
-      <label for="comment"></label>
-      <input name="comment"/>
-
-      <label for="rating"></label>
+      <div class="comment-label-container">
+      <label for="rating">Rating:</label>
       <input 
         class="rating" 
         value="1" 
@@ -16,8 +14,15 @@ export default function interactionsForm(id) {
         max="5" 
         oninput="this.style.setProperty('--value', this.value)"
         />
+      </div>
     </div>
-      <button type="submit">Submit</button>
+    <div class="comment-submit-container">
+    <div class="comment-label-container">
+    <label for="comment">Comment:</label>
+    <input name="comment"/>
+    </div>
+    <button class="btn btn-submit" type="submit">+</button>
+    </div>
     </form>
   `;
 }
