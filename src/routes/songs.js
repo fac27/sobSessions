@@ -5,13 +5,15 @@ import { sanitiseInput } from '../sanitise.js';
 import header from './components/header.js';
 import songsHTML from './components/songsHTML.js';
 
-export function get(_, res) {
+export function get(req, res) {
+  if (!req.sessionIsValid) return res.redirect('/');
   const title = `Top 10`;
   const songsArr = getAllSongs();
   const songs = songsHTML(songsArr);
   const content = /*html*/ `
     ${header()}
     <main class="all-songs-container">
+    <h1> ${req.signedCookies.name} </h1>
     ${songs}
     </main>
     `;
