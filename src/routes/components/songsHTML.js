@@ -16,7 +16,7 @@ export default function songsHTML(songsArr) {
         <div class="song-container">
         <div class="player-container">
         ${iframe(song.url)}
-        <p>Average rating: ${formatNumber(starRating(song.avg_rating))} ${formatNumber(song.avg_rating)}</p>
+        <p>Average rating: ${starRating(formatNumber(song.avg_rating))} ${formatNumber(song.avg_rating)}</p>
         </div>
         <div class="comments-container">
         ${commentsArr
