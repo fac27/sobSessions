@@ -1,6 +1,6 @@
 import { getSongInteraction } from '../../model/interactions.js';
 import iframe from './iframe.js';
-import stars from './stars.js';
+import { stars, starRating } from './stars.js';
 import interactionsForm from './interactions-form.js';
 
 export default function songsHTML(songsArr) {
@@ -11,7 +11,7 @@ export default function songsHTML(songsArr) {
         <div class="song-container flex">
         <div class="player-container">
         ${iframe(song.url)}
-        <p>Average rating: ${song.avg_rating}/5</p>
+        <p>Average rating: ${starRating(song.avg_rating)} ${song.avg_rating}</p>
         </div>
         <div>
         ${commentsArr

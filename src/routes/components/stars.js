@@ -1,4 +1,4 @@
-export default function stars(number) {
+export function stars(number) {
   const goldStars = number;
   const greyStars = 5 - number;
   let rating = ``;
@@ -12,4 +12,8 @@ export default function stars(number) {
   return `<figure aria-label="song rated ${number} star${
     number > 1 ? 's' : ''
   }">${rating}</figure>`;
+}
+
+export function starRating(number) {
+  return `<i data-star="${number}"></i>`;
 }
