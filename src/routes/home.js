@@ -24,7 +24,6 @@ export function get(req, res) {
     </div>
     </div>
     <a class="btn btn__login" href="${LOGIN_URL}">Log in with GitHub</a>
-    <!-- <button class="btn btn__login">Login w/ Github</button> -->
     </div>`;
 
   const response = layout({ title, content });

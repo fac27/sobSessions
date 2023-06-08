@@ -9,7 +9,7 @@ export default function auth(req, res) {
   api
     .getToken(code)
     .then(api.getUser)
-    .then((user) => {
+    .then(user => {
       res.cookie('refresh_token', user.refresh_token, {
         httpOnly: true,
         signed: true,

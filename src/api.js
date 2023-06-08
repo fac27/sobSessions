@@ -37,17 +37,17 @@ export function getUser(user) {
       authorization: `token ${user.access_token}`,
     },
   })
-    .then(async (res) => {
+    .then(async res => {
       if (res.status != 401) return res;
       const res2 = await refreshToken(res);
       if (res2.status == 401) throw new Error('Refresh token failed');
       return res2;
     })
-    .then((res) => res.json())
-    .then((json) => {
+    .then(res => res.json())
+    .then(json => {
       return { ...user, ...json };
     })
-    .catch((err) => {
+    .catch(err => {
       console.error('err getting user: ', err);
       res.redirect('/');
     });

@@ -1,7 +1,8 @@
 import { layout } from '../template.js';
-import header from './components/header.js';
 import { getAllSongs } from '../model/songs.js';
 import { createInteraction } from '../model/interactions.js';
+import { sanitiseInput } from '../sanitise.js';
+import header from './components/header.js';
 import songsHTML from './components/songsHTML.js';
 
 export function get(req, res) {
@@ -22,7 +23,7 @@ export function get(req, res) {
 
 export function post(req, res) {
   const { comment, rating, song_id } = req.body;
-  const interaction = { song_id, rating, comment };
+  const interaction = { song_id, rating, comment: sanitiseInput(comment) };
   createInteraction(interaction);
   res.redirect('/songs');
 }
