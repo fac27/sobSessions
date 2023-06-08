@@ -3,6 +3,11 @@ import iframe from './iframe.js';
 import stars from './stars.js';
 import interactionsForm from './interactions-form.js';
 
+function formatNumber(num) {
+  let n = Number(num.toFixed(2));
+  return parseFloat(n);
+}
+
 export default function songsHTML(songsArr) {
   return songsArr
     .map(song => {
@@ -11,7 +16,7 @@ export default function songsHTML(songsArr) {
         <div class="song-container flex">
         <div class="player-container">
         ${iframe(song.url)}
-        <p>Average rating: ${song.avg_rating}/5</p>
+        <p>Average rating: ${formatNumber(song.avg_rating)}/5</p>
         </div>
         <div>
         ${commentsArr
