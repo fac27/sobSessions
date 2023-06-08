@@ -1,25 +1,10 @@
+import { layout } from '../template.js';
 import { getClient } from '../api.js';
+import logo from '../routes/components/logo.js';
 
 const LOGIN_URL = `https://github.com/login/oauth/authorize?client_id=${
   getClient().id
 }`;
-
-// export function get(req, res) {
-//   const user = req?.session?.name;
-//   if (user) {
-//     res.send(`<h1>Welcome ${user || 'unknown user'}</h1>`);
-//   } else {
-//     res.send(`
-//       <h1>Welcome</h1>
-//       <a href="${LOGIN_URL}">Log in with GitHub</a>
-//     `);
-//   }
-// }
-
-import { layout } from '../template.js';
-import logo from '../routes/components/logo.js';
-
-// testing purposes
 
 export function get(req, res) {
   console.log('session is valid for home? :', req.sessionIsValid);

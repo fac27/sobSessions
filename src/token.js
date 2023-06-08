@@ -8,8 +8,6 @@ const VALIDATE_URL = `https://api.github.com/applications/${
 import dotenv from 'dotenv';
 dotenv.config({ path: process.cwd() + '/.env' });
 
-console.log(process.env.GITHUB_TOKEN);
-
 export async function middleware(req, res, next) {
   req.sessionIsValid = true;
   function checkCookies(object) {

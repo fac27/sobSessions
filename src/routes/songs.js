@@ -5,7 +5,6 @@ import { createInteraction } from '../model/interactions.js';
 import songsHTML from './components/songsHTML.js';
 
 export function get(req, res) {
-  console.log('session is valid for songs? :', req.sessionIsValid);
   if (!req.sessionIsValid) return res.redirect('/');
   const title = `Top 10`;
   const songsArr = getAllSongs();
